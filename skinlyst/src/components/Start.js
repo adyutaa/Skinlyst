@@ -12,7 +12,7 @@ const Start = () => {
       </div>
       <div className='text-center'>
         <h1 className='fw-bold'>KNOW YOUR SKIN BETTER</h1>
-        <h1>SKINCARE ANALYZER</h1>
+        <h1>SKINCARE ANALYZEER</h1>
       </div>
       <div className='mt-4'>
         <img src={logo} className='app-logo mx-auto d-block' alt="logo" fluid />
