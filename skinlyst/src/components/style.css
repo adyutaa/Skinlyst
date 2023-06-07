@@ -1,0 +1,15 @@
+
+
+
+.gradient-bg {
+    background: linear-gradient(to right, #EEFFE0, #88C6FF);
+    height: 100vh;
+  
+    
+  }
+  
+  .custom-button{
+    background-color : #8E9BCB;
+    border : none;
+    border-radius: 30px;
+  }
