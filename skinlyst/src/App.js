@@ -1,12 +1,20 @@
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import './App.css'
+import StartPages from './pages/StartPages';
+import UploadPages from './pages/UploadPage';
 
-import './App.css';
-import Start from './components/Start';
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <Start />
-    </div>
-  );
+    <Router>
+      <Routes>
+        <Route path='/' element={<StartPages />} />
+        <Route path='/upload' element={<UploadPages />} />
+      </Routes>
+    </Router>
+  )
 }
 
-export default App;
+export default App
+
+
+
