@@ -3,7 +3,7 @@ import './style.css';
 import {Container,Navbar,Card} from 'react-bootstrap';
 import { Button } from 'react-bootstrap'; 
 
-const Upload = () => {
+const skinType = () => {
   return (
     <div className="gradient-bg">
        <Navbar>
@@ -64,4 +64,4 @@ const Upload = () => {
   );
 }
 
-export default Upload;
+export default skinType;
