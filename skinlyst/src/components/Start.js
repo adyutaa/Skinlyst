@@ -23,7 +23,7 @@ const Start = () => {
         </p>
       </div>
       <div className='d-grid col-2 mx-auto mt-4'>
-        <Button className='custom-button fw-bold' href='./Upload' size='lg'>Mulai</Button>{''}
+        <Button className='custom-button fw-bold' href='./Upload' size='lg'>Mulai</Button>
       </div>
   </div>
   );

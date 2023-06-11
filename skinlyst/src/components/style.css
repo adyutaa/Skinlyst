@@ -14,3 +14,20 @@
     margin-top: 3vh;
     height: 70vh;
   }
+
+  .card{
+    margin-left : 100px;
+    border-style : solid;
+  }
+
+  .image1{
+    width : 200px;
+    height: 200px;
+    margin-left:10%;
+    margin-top : 10%;
+  }
+  .tombol{
+    width:100%;
+    border-style:solid;
+    padding-left:3px;
+  }
