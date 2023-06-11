@@ -7,6 +7,7 @@ import syaratLG4 from './syaratLG4.svg';
 import {Container,Navbar,Card,Button,Row,Col} from 'react-bootstrap';
 
 
+
 const Upload = () => {
   return (
     <div className="gradient-bg">
@@ -28,7 +29,7 @@ const Upload = () => {
       <div className="mid">
         <div className="text-center p-3">
           <h2>UPLOAD FOTO WAJAH</h2><br/>
-
+          
     <Card style={{ width: '15rem' }} className="float-start">
       <Card.Img className="image1" variant="top" src={syaratLG1} />
       <Card.Body>
