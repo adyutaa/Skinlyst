@@ -1,6 +1,10 @@
 import React from "react";
 import './style.css';
-import {Container,Navbar,Card} from 'react-bootstrap';
+import syaratLG1 from './syaratLG1.svg';
+import syaratLG2 from './syaratLG2.svg';
+import syaratLG3 from './syaratLG3.svg';
+import syaratLG4 from './syaratLG4.svg';
+import {Container,Navbar,Card,Button,Row,Col} from 'react-bootstrap';
 
 
 const Upload = () => {
@@ -23,20 +27,68 @@ const Upload = () => {
 
       <div className="mid">
         <div className="text-center p-3">
-          <h2>UPLOAD FOTO WAJAH</h2>
+          <h2>UPLOAD FOTO WAJAH</h2><br/>
 
-          <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
+    <Card style={{ width: '15rem' }} className="float-start">
+      <Card.Img className="image1" variant="top" src={syaratLG1} />
       <Card.Body>
-        <Card.Title>Card Title</Card.Title>
+        {/* <Card.Title>Card Title</Card.Title> */}
+        <Card.Text className="pt-3">
+          Hapus riasan wajah/makeup pada wajah.
+        </Card.Text>
+        {/* <Button variant="primary">Go somewhere</Button> */}
+      </Card.Body>
+    </Card>
+
+    <Card style={{ width: '15rem' }} className="float-start">
+      <Card.Img className="image" variant="top" src={syaratLG2} />
+      <Card.Body>
+        {/* <Card.Title>Card Title</Card.Title> */}
         <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
+          Pastikan tidak ada sesuatu yang menutupi area wajah.
+        </Card.Text>
+        {/* <Button variant="primary">Go somewhere</Button> */}
+      </Card.Body>
+    </Card>
+
+    <Card style={{ width: '15rem' }} className="float-start">
+      <Card.Img className="image" variant="top" src={syaratLG3} />
+      <Card.Body>
+        {/* <Card.Title>Card Title</Card.Title> */}
+        <Card.Text>
+        pastikan pencahayaan cukup terang.
+        </Card.Text>
+        {/* <Button variant="primary">Go somewhere</Button> */}
+      </Card.Body>
+    </Card>
+
+    <Card style={{ width: '15rem' }} className="float-start">
+      <Card.Img className="image" variant="top" src={syaratLG4} />
+      <Card.Body>
+        {/* <Card.Title>Card Title</Card.Title> */}
+        <Card.Text>
+        Aktifkan kamera dan posisikan wajah ditengah.
         </Card.Text>
         {/* <Button variant="primary">Go somewhere</Button> */}
       </Card.Body>
     </Card>
         </div>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+        <div className="text-center mt-5">
+          <Row className="justify-content-center">
+            <Col xs="auto">
+              <Button className="custom-button fw-bold">AMBIL FOTO</Button>
+            </Col>
+          </Row>
+
+          <Row className="mt-1">
+            <Col xs="">
+              <Button className="custom-button fw-bold">UPLOAD FOTO DARI GALERI</Button>
+            </Col>
+          </Row>
+        </div>
+
       </div>
     </div>
   );
