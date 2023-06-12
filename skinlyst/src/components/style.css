@@ -16,8 +16,9 @@
   }
 
   .card{
-    margin-left : 100px;
+    margin-left : 200px;
     border-style : solid;
+    border-color:white;
   }
 
   .image1{
@@ -30,4 +31,15 @@
     width:100%;
     border-style:solid;
     padding-left:3px;
+  }
+  .imageST{
+    width : 180px;
+    height: 180px;
+    margin-left:10%;
+    margin-top : 20%;
+  }
+
+  .hover:hover{
+    background-color : #CAD4DD;
+    transition: 1.0s;
   }
