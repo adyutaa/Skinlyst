@@ -25,7 +25,7 @@ const SkinType = () => {
 
       <div className="midST">
         <div className="text-center p-3">
-          <p className="fw-bold fs-2">PILIH JENIS KULITMU</p>
+          <p className=" fs-2">PILIH JENIS KULITMU</p>
 
              <div className="CardST">
               <a href="/">
@@ -33,7 +33,7 @@ const SkinType = () => {
                <Card.Img className="imageST" variant="top" src={KeringTST} />
                 <Card.Body>
         {/* <Card.Title>Card Title</Card.Title> */}
-                  <Card.Text className="fw-bold fs-4">
+                  <Card.Text className=" fs-4">
                     Kering
                   </Card.Text>
         {/* <Button variant="primary">Go somewhere</Button> */}
@@ -46,7 +46,7 @@ const SkinType = () => {
                 <Card.Img className="imageST" variant="top" src={BerminyakST} />
                   <Card.Body>
         {/* <Card.Title>Card Title</Card.Title> */}
-                    <Card.Text className="fw-bold fs-4">
+                    <Card.Text className=" fs-4">
                       Berminyak
                     </Card.Text>
         {/* <Button variant="primary">Go somewhere</Button> */}
@@ -58,7 +58,7 @@ const SkinType = () => {
                 <Card style={{ width: '15rem' }} className="float-start hover">
                   <Card.Img className="imageST" variant="top" src={NormalST} />
                     <Card.Body>
-                      <Card.Text className="fw-bold fs-4">
+                      <Card.Text className="fs-4">
                         Normal
                      </Card.Text>
                     </Card.Body>
