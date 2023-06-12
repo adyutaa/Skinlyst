@@ -11,14 +11,14 @@ const Start = () => {
         <h1 className=' fw-bold'>Skinlyst</h1>
       </div>
       <div className='text-center'>
-        <h1 className='fw-bold'>KNOW YOUR SKIN BETTER</h1>
-        <h1>SKINCARE ANALYZEER</h1>
+        <h1 className=''>KNOW YOUR SKIN BETTER</h1>
+        <h1>SKINCARE ANALYZER</h1>
       </div>
       <div className='mt-4'>
         <img src={logo} className='app-logo mx-auto d-block' alt="logo" fluid />
       </div>
       <div>
-        <p className='fw-bold text-center mt-4'>
+        <p className='text-center mt-4'>
          Cek permasalah kulit & kebutuhan skincare untuk kulitmu di Skinlyst!
         </p>
       </div>
