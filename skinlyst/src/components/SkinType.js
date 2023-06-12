@@ -1,6 +1,9 @@
 import React from "react";
 import './style.css';
-import {Container,Navbar,Card,Button} from 'react-bootstrap'; 
+import NormalST from './NormalST.svg';
+import BerminyakST from './BerminyakST.svg';
+import KeringTST from './KeringST.svg';
+import {Container,Navbar,Card} from 'react-bootstrap'; 
 
 const SkinType = () => {
   return (
@@ -22,41 +25,58 @@ const SkinType = () => {
 
       <div className="mid">
         <div className="text-center p-3">
-          <h2>PILIH JENIS KULITMU</h2>
+          <p className="fw-bold fs-2">PILIH JENIS KULITMU</p>
 
              <div className="Card">
-             <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="holder.js/100px180" />
-                     <Card.Body>
-                             <Card.Title>Kering</Card.Title>
-                                    <Card.Text>
-                                    </Card.Text>
-                                    {/* <Button variant="primary">Go somewhere</Button> */}
-                        </Card.Body>
-                      </Card>
-                  </div>
-                  <div className="float: left">
-                  <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="holder.js/100px180" />
-                     <Card.Body>
-                             <Card.Title>Berminyak</Card.Title>
-                                    {/* <Button variant="primary">Go somewhere</Button> */}
-                        </Card.Body>
-            </Card>
-                  </div>
-                  <div className="float: left">
-                  <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="holder.js/100px180" />
-                     <Card.Body>
-                             <Card.Title>Normal</Card.Title>
-                                    {/* <Button variant="primary">Go somewhere</Button> */}
-                        </Card.Body>
-            </Card>
-                  </div>
+              <a href="/">
+              <Card style={{ width: '15rem'}} className="float-start hover">
+               <Card.Img className="imageST" variant="top" src={KeringTST} />
+                <Card.Body>
+        {/* <Card.Title>Card Title</Card.Title> */}
+                  <Card.Text className="fw-bold fs-4">
+                    Kering
+                  </Card.Text>
+        {/* <Button variant="primary">Go somewhere</Button> */}
+                 </Card.Body>
+              </Card>
+              </a>
 
-                  <Button className="custom-button">Selanjutnya</Button>
-                  
-                  
+              <a href="/">
+              <Card style={{ width: '15rem' }} className="float-start hover">
+                <Card.Img className="imageST" variant="top" src={BerminyakST} />
+                  <Card.Body>
+        {/* <Card.Title>Card Title</Card.Title> */}
+                    <Card.Text className="fw-bold fs-4">
+                      Berminyak
+                    </Card.Text>
+        {/* <Button variant="primary">Go somewhere</Button> */}
+                  </Card.Body>
+              </Card>
+              </a>
+
+              <a href="/">
+                <Card style={{ width: '15rem' }} className="float-start hover">
+                  <Card.Img className="imageST" variant="top" src={NormalST} />
+                    <Card.Body>
+                      <Card.Text className="fw-bold fs-4">
+                        Normal
+                     </Card.Text>
+                    </Card.Body>
+                </Card>
+              </a>
+
+
+          </div>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+          {/* <div className="text-center mt-5">
+            <Row className="justify-content-center">
+              <Col xs="auto">
+                <Button className="custom-button fw-bold text-center fs-5">SELANJUTNYA</Button>
+              </Col>
+            </Row>
+          </div> */}
+
         </div>
       </div>
     </div>
