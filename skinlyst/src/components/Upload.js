@@ -30,7 +30,7 @@ const Upload = () => {
         <div className="text-center p-3">
           <h2>UPLOAD FOTO WAJAH</h2><br/>
           
-    <Card style={{ width: '15rem' }} className="float-start">
+    <Card style={{ width: '15rem' }} className="float-start card">
       <Card.Img className="image1" variant="top" src={syaratLG1} />
       <Card.Body>
         {/* <Card.Title>Card Title</Card.Title> */}
@@ -41,7 +41,7 @@ const Upload = () => {
       </Card.Body>
     </Card>
 
-    <Card style={{ width: '15rem' }} className="float-start">
+    <Card style={{ width: '15rem' }} className="float-start card">
       <Card.Img className="image" variant="top" src={syaratLG2} />
       <Card.Body>
         {/* <Card.Title>Card Title</Card.Title> */}
@@ -52,7 +52,7 @@ const Upload = () => {
       </Card.Body>
     </Card>
 
-    <Card style={{ width: '15rem' }} className="float-start">
+    <Card style={{ width: '15rem' }} className="float-start card">
       <Card.Img className="image" variant="top" src={syaratLG3} />
       <Card.Body>
         {/* <Card.Title>Card Title</Card.Title> */}
@@ -63,7 +63,7 @@ const Upload = () => {
       </Card.Body>
     </Card>
 
-    <Card style={{ width: '15rem' }} className="float-start">
+    <Card style={{ width: '15rem' }} className="float-start card">
       <Card.Img className="image" variant="top" src={syaratLG4} />
       <Card.Body>
         {/* <Card.Title>Card Title</Card.Title> */}

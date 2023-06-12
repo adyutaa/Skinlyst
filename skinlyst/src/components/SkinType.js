@@ -23,11 +23,11 @@ const SkinType = () => {
         </Row>
       </Container> */}
 
-      <div className="mid">
+      <div className="midST">
         <div className="text-center p-3">
           <p className="fw-bold fs-2">PILIH JENIS KULITMU</p>
 
-             <div className="Card">
+             <div className="CardST">
               <a href="/">
               <Card style={{ width: '15rem'}} className="float-start hover">
                <Card.Img className="imageST" variant="top" src={KeringTST} />
