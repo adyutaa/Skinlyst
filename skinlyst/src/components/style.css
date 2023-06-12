@@ -11,11 +11,21 @@
 
   .mid{
     background-color: white;
+    margin-top: 4vh;
+    height: 72vh;
+  }
+  .midST{
+    background-color: white;
     margin-top: 3vh;
     height: 70vh;
   }
 
   .card{
+    margin-left : 120px;
+    border-style : solid;
+    border-color:white;
+  }
+  .CardST{
     margin-left : 200px;
     border-style : solid;
     border-color:white;
