@@ -1,44 +1,30 @@
 import React from "react";
+import './style.css';
+import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
 
 const Market = () => {
     return (
-        <div id="navbar">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Skinlyst</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2 float-start" type="search" placeholder="Search" aria-label="Search"/>
-      <button class="btn btn-outline-success my-2 my-sm-0 float-start" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
-        </div>
+<Navbar bg="light" expand="lg">
+  <Navbar.Brand href="#">Skinlyst</Navbar.Brand>
+  <Navbar.Toggle aria-controls="navbarSupportedContent" />
+  <Navbar.Collapse id="navbarSupportedContent">
+    <Nav className="mr-auto">
+      <Nav.Link href="#" active>Home</Nav.Link>
+      <Nav.Link href="#">Link</Nav.Link>
+      <NavDropdown title="Dropdown" id="navbarDropdown">
+        <NavDropdown.Item href="#">Action</NavDropdown.Item>
+        <NavDropdown.Item href="#">Another action</NavDropdown.Item>
+        <NavDropdown.Divider />
+        <NavDropdown.Item href="#">Something else here</NavDropdown.Item>
+      </NavDropdown>
+      <Nav.Link href="#" disabled>Disabled</Nav.Link>
+    </Nav>
+    <Form inline className="w-50">
+      <FormControl type="search" placeholder="Search" className="mr-sm-2 w-25 float-start" />
+      <Button variant="outline-success ml-3 float-start" className="">Search</Button>
+    </Form>
+  </Navbar.Collapse>
+</Navbar>
     );
 }
 
