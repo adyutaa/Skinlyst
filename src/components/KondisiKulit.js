@@ -1,11 +1,12 @@
-import React from "react";
+import React from 'react'
 import './style.css';
-import NormalST from './NormalST.svg';
-import BerminyakST from './BerminyakST.svg';
-import KeringTST from './KeringST.svg';
+import Flek from './img/Flek.svg';
+import Kusam from './img/Kusam.svg';
+import Sensitif from './img/Sensitif.svg';
+import Jerawat from './img/Jerawat.svg';
 import {Container,Navbar,Card} from 'react-bootstrap'; 
 
-const SkinType = () => {
+const KondisiKulit = () => {
   return (
     <div className="gradient-bg">
        <Navbar>
@@ -25,29 +26,29 @@ const SkinType = () => {
 
       <div className="midST">
         <div className="text-center p-3">
-          <p className=" fs-2">PILIH JENIS KULITMU</p>
+          <p className=" fs-2">PILIH KONDISI KULITMU!</p>
 
-             <div className="CardST">
-              <a href="/">
+             <div className="CardKK">
+              <a href="ukur-kering">
               <Card style={{ width: '15rem'}} className="float-start hover">
-               <Card.Img className="imageST" variant="top" src={KeringTST} />
+               <Card.Img className="imageKK" variant="top" src={Flek} />
                 <Card.Body>
         {/* <Card.Title>Card Title</Card.Title> */}
                   <Card.Text className=" fs-4">
-                    Kering
+                    Flek
                   </Card.Text>
         {/* <Button variant="primary">Go somewhere</Button> */}
                  </Card.Body>
               </Card>
               </a>
 
-              <a href="/">
+              <a href="ukur-minyak">
               <Card style={{ width: '15rem' }} className="float-start hover">
-                <Card.Img className="imageST" variant="top" src={BerminyakST} />
+                <Card.Img className="imageKK" variant="top" src={Kusam} />
                   <Card.Body>
         {/* <Card.Title>Card Title</Card.Title> */}
                     <Card.Text className=" fs-4">
-                      Berminyak
+                      Kusam
                     </Card.Text>
         {/* <Button variant="primary">Go somewhere</Button> */}
                   </Card.Body>
@@ -56,15 +57,25 @@ const SkinType = () => {
 
               <a href="/">
                 <Card style={{ width: '15rem' }} className="float-start hover">
-                  <Card.Img className="imageST" variant="top" src={NormalST} />
+                  <Card.Img className="imageKK" variant="top" src={Sensitif} />
                     <Card.Body>
                       <Card.Text className="fs-4">
-                        Normal
+                        Sensitif
                      </Card.Text>
                     </Card.Body>
                 </Card>
               </a>
 
+              <a href="/">
+                <Card style={{ width: '15rem' }} className="float-start hover">
+                  <Card.Img className="imageKK" variant="top" src={Jerawat} />
+                    <Card.Body>
+                      <Card.Text className="fs-4">
+                        Jerawat
+                     </Card.Text>
+                    </Card.Body>
+                </Card>
+              </a>
 
           </div>
         <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
@@ -80,7 +91,7 @@ const SkinType = () => {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default SkinType;
+export default KondisiKulit
