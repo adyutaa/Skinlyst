@@ -7,6 +7,8 @@ import MarketPages from './pages/MarketPages';
 import SdrKeringPgs from './pages/SdrKeringPgs'; 
 import SdrBerminyakPgs from './pages/SdrBerminyakPgs';
 import KondisiPages from './pages/KondisiPages';
+import LoginPages from './pages/LoginPages';
+import SignUpPages from './pages/SignUpPages';
 
 const App = () => {
   return (
@@ -19,6 +21,8 @@ const App = () => {
         <Route path='/ukur-kering' element={<SdrKeringPgs />} />
         <Route path='/ukur-minyak' element={<SdrBerminyakPgs />} />
         <Route path='/kondisiKulit' element={<KondisiPages />} />
+        <Route path='/Login' element={<LoginPages />} />
+        <Route path='/SignUp' element={<SignUpPages />} />
       </Routes>
     </Router>
   )
