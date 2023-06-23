@@ -1,24 +1,28 @@
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import './App.css'
-import StartPages from './pages/StartPages';
-import UploadPages from './pages/UploadPage';  
-import SkinTypePages from './pages/SkinTypePages';  
-import MarketPages from './pages/MarketPages'; 
-import SdrKeringPgs from './pages/SdrKeringPgs'; 
-import SdrBerminyakPgs from './pages/SdrBerminyakPgs';
-import KondisiPages from './pages/KondisiPages';
+import Start from './components/Start';
+import Upload from './components/Upload';  
+import SkinType from './components/SkinType';  
+import Market from './components/Market'; 
+import SdrKering from './components/SdrKering'; 
+import SdrBerminyak from './components/SdrBerminyak';
+import KondisiKulit from './components/KondisiKulit';
+import Kandungan from './components/Kandungan';
+import JenisSkincare from './components/JenisSkincare';
 
 const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<StartPages />} />
-        <Route path='/upload' element={<UploadPages />} />
-        <Route path='/tipeKulit' element={<SkinTypePages />} />
-        <Route path='/market' element={<MarketPages />} />
-        <Route path='/ukur-kering' element={<SdrKeringPgs />} />
-        <Route path='/ukur-minyak' element={<SdrBerminyakPgs />} />
-        <Route path='/kondisiKulit' element={<KondisiPages />} />
+        <Route path='/' element={<Start />} />
+        <Route path='/upload' element={<Upload />} />
+        <Route path='/tipeKulit' element={<SkinType />} />
+        <Route path='/market' element={<Market />} />
+        <Route path='/ukur-kering' element={<SdrKering />} />
+        <Route path='/ukur-minyak' element={<SdrBerminyak />} />
+        <Route path='/kondisiKulit' element={<KondisiKulit />} />
+        <Route path='/kandungan-kulit' element={<Kandungan />} />
+        <Route path='/jenis-skincare' element={<JenisSkincare />} />
       </Routes>
     </Router>
   )
