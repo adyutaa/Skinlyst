@@ -21,49 +21,65 @@ const JenisSkincare = () => {
             <div className="box">
                 <div className="rectangle-wrapper">
                     <div className="rectangle">
-                        <h2 className="text-wrapper">FACIAL WASH </h2>
+                        <h2 className="text-wrapper fw-bold">FACIAL WASH </h2>
                     </div>
                 </div>
             </div>
 
             <div className="box">
                 <div className="rectangle-wrapper">
-                    <div className="rectangle" />
+                    <div className="rectangle">
+                        <h2 className="text-wrapper fw-bold">TONER </h2>
+                    </div>
                 </div>
             </div>
             <div className="box">
                 <div className="rectangle-wrapper">
-                    <div className="rectangle" />
+                    <div className="rectangle">
+                        <h2 className="text-wrapper fw-bold">MOISTURIZER </h2>
+                    </div>
                 </div>
             </div>
             <div className="box">
                 <div className="rectangle-wrapper">
-                    <div className="rectangle" />
+                    <div className="rectangle">
+                        <h2 className="text-wrapper fw-bold">SUNSCREEN </h2>
+                    </div>
                 </div>
             </div>
             <div className="box">
                 <div className="rectangle-wrapper">
-                    <div className="rectangle" />
+                    <div className="rectangle">
+                        <h2 className="text-wrapper fw-bold">MICELAR WATER </h2>
+                    </div>
                 </div>
             </div>
             <div className="box">
                 <div className="rectangle-wrapper">
-                    <div className="rectangle" />
+                    <div className="rectangle">
+                        <h2 className="text-wrapper fw-bold">SERUM </h2>
+                    </div>
                 </div>
             </div>
             <div className="box">
                 <div className="rectangle-wrapper">
-                    <div className="rectangle" />
+                    <div className="rectangle">
+                        <h2 className="text-wrapper fw-bold">ESSENCE </h2>
+                    </div>
                 </div>
             </div>
             <div className="box">
                 <div className="rectangle-wrapper">
-                    <div className="rectangle" />
+                    <div className="rectangle">
+                        <h2 className="text-wrapper fw-bold">EYE CREAM </h2>
+                    </div>
                 </div>
             </div>
             <div className="box">
                 <div className="rectangle-wrapper">
-                    <div className="rectangle" />
+                    <div className="rectangle">
+                        <h2 className="text-wrapper fw-bold">MASK </h2>
+                    </div>
                 </div>
             </div>
         </div>

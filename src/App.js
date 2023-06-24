@@ -9,6 +9,9 @@ import SdrBerminyak from './components/SdrBerminyak';
 import KondisiKulit from './components/KondisiKulit';
 import Kandungan from './components/Kandungan';
 import JenisSkincare from './components/JenisSkincare';
+import Login from './components/Login';
+import SignUp from './components/SignUp';
+import ProdukToner from './components/ProdukToner';
 
 const App = () => {
   return (
@@ -23,6 +26,9 @@ const App = () => {
         <Route path='/kondisiKulit' element={<KondisiKulit />} />
         <Route path='/kandungan-kulit' element={<Kandungan />} />
         <Route path='/jenis-skincare' element={<JenisSkincare />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/sign-up' element={<SignUp />} />
+        <Route path='/produk-toner' element={<ProdukToner />} />
       </Routes>
     </Router>
   )
