@@ -13,6 +13,7 @@ import Login from './components/Login';
 import SignUp from './components/SignUp';
 import ProdukToner from './components/ProdukToner';
 import Market2 from './components/Market2';
+import ProductScreen from './components/productScreen';
 
 const App = () => {
   return (
@@ -31,6 +32,7 @@ const App = () => {
         <Route path='/sign-up' element={<SignUp />} />
         <Route path='/produk-toner' element={<ProdukToner />} />
         <Route path='/market2' element={<Market2 />} />
+        <Route path='/product/:slug' element={<ProductScreen />} />
       </Routes>
     </Router>
   )

@@ -1,37 +1,74 @@
-import React from 'react'
-import data from '.././models/data'
-import './Market2.css'
+import React, { useEffect, useReducer, useState } from 'react';
+import axios from 'axios';
+import './Market2.css';
+import logger from 'use-reducer-logger';
+import { Link } from 'react-router-dom';
+//import data from '.././models/data';
 
-const Market2 = () => {
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'FETCH_REQUEST':
+      return { ...state, loading: true, error: '' };
+    case 'FETCH_SUCCESS':
+      return { ...state, loading: false, products: action.payload };
+    case 'FETCH_FAIL':
+      return { ...state, loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
+
+function Market2() {
+ // const [products, setProducts] = useState([]);
+  const [{ loading, error, products }, dispatch] = useReducer(logger(reducer), {
+    loading: true,
+    error: '',
+});
+  useEffect(() => {
+    const fetchData = async () => {
+      dispatch({ type: 'FETCH_REQUEST' });
+      try {
+        const result = await axios.get('/api/products');
+        dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
+      } catch {
+        dispatch({ type: 'FETCH_FAIL', payload: error.message });
+        return;
+      }
+      
+    //  setProducts(result.data);
+    };
+    fetchData();
+  }, []);
+
   return (
     <div>
-        <header>
-              <a href="/">Skinlyst</a>
-          </header>
-          <main>
-              <h1>Featured Products</h1>
-              <div className="products">
-                  {data.products.map((product) => (
-                      <div className="product" key={product.slug}>
-                          <a href={`/product/${product.slug}`}>
-                              <img src={product.image} alt={product.name} />
-                          </a>
-                          <div className='product-info'>
-                          <a href={`/product/${product.slug}`}>
-                                  <p>{product.name}</p>
-                          </a>
-                              <p>
-                                  <strong>${product.price}</strong>
-                              </p>
-                          <p>{product.brand}</p>
-                         <button>Add to Cart</button>
-                         </div>    
-                    </div>
-                ))}
+      <header>
+        <Link to='/'>
+          <h1 className='fw-bold'>Skinlyst</h1>
+        </Link>
+      </header>
+      <main>
+        <h1>Featured Products</h1>
+        <div className="products">
+          {products.map((product) => ( // --> iki sek error cah, product.map pie yo
+            <div className="product" key={product.slug}>
+              <Link to={`/product/${product.slug}`} />
+              <img src={product.image} alt={product.name} />
+              <div className="product-info">
+                <Link to={`/product/${product.slug}`}>
+                  <p>{product.name}</p>
+                </Link>
+                <p>
+                  <strong>${product.price}</strong>
+                </p>
+                <button>Add to cart</button>
               </div>
-          </main>
+            </div>
+          ))}
+        </div>
+      </main>
     </div>
-  )
+  );
 }
 
-export default Market2
+export default Market2;

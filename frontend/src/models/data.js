@@ -1,41 +1,53 @@
 const data = {
     products: [
-        {
-            name: 'Centella Green Level Unscented Sun SPF50+ PA++++',
-            slug: 'centella-green-level-unscented-sun-spf50-pa++++',
-            category: 'Sunscreen',
-            image: '.././components/image/centella-toner.png',
-            price: 23.00,
-            countInStock: 10,
-            brand: 'Klairs',
-            rating: 4.5,
-            numReviews: 10,
-            description: 'A water-based, unscented sunscreen that offers SPF50+ PA++++ protection with centella asiatica and aloe vera.'
-        },
-        {
-            name: 'Centella Green Level Unscented Sun SPF50+ PA++++',
-            slug: 'centella-green-level-unscented-sun-spf50-pa++++',
-            category: 'Sunscreen',
-            image: './components/img/whitelab.png',
-            price: 23.00,
-            countInStock: 10,
-            brand: 'Klairs',
-            rating: 4.5,
-            numReviews: 10,
-            description: 'A water-based, unscented sunscreen'
-        },
-        {
-            name: 'Centella Green Level Unscented Sun SPF50+ PA++++',
-            slug: 'centella-green-level-unscented-sun-spf50-pa++++',
-            category: 'Sunscreen',
-            image: './components/img/yuja.png',
-            price: 23.00,
-            countInStock: 10,
-            brand: 'Klairs',
-            rating: 4.5,
-            numReviews: 10,
-            description: 'A water-based, unscented sunscreen' 
-        }
-    ]
-}
-    export default data;
+      {
+        name: 'Centella Green Sunscreen',
+        slug: 'centella-green50',
+        category: 'Sunscreen',
+        image: '/image/centella-tonerr.jpg', // 679px × 829px
+        price: 120,
+        countInStock: 10,
+        brand: 'Centella',
+        rating: 4.5,
+        numReviews: 10,
+        description: 'suncrenn bagus',
+      },
+      {
+        name: 'Adidas Fit Shirt',
+        slug: 'adidas-fit-shirt',
+        category: 'Shirts',
+        image: '/image/whitelab.png',
+        price: 250,
+        countInStock: 20,
+        brand: 'Adidas',
+        rating: 4.0,
+        numReviews: 10,
+        description: 'high quality product',
+      },
+      {
+        name: 'Nike Slim Pant',
+        slug: 'nike-slim-pant',
+        category: 'Pants',
+        image: '/image/yuja.png',
+        price: 25,
+        countInStock: 15,
+        brand: 'Nike',
+        rating: 4.5,
+        numReviews: 14,
+        description: 'high quality product',
+      },
+      {
+        name: 'Adidas Fit Pant',
+        slug: 'adidas-fit-pant',
+        category: 'Pants',
+        image: '/image/wardah.png',
+        price: 65,
+        countInStock: 5,
+        brand: 'Puma',
+        rating: 4.5,
+        numReviews: 10,
+        description: 'high quality product',
+      },
+    ],
+  };
+  export default data;
