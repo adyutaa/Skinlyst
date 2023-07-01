@@ -1,0 +1,98 @@
+/* .head{
+    width: 100%;
+    border: 1px solid #ccc;
+    margin-top: 50px;
+}
+.informasi .icon{
+    width: 70px;
+    height: 70px;
+    background-color: #ccc;
+} */
+
+/* .informasi{
+    border: 1px solid #ccc;
+    float: left;
+} */
+
+
+.judul{
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    opacity: 0.5;
+    line-height: 0;
+    /* border-bottom: 1px solid #ccc; */
+}
+.card-content {
+    flex-grow: 1;
+  }
+  
+  .card-image-container {
+    position: absolute;
+    top: 5;
+    right: 0;
+    padding: 10px;
+  }
+  
+  .card-image-container .icon {
+    height: 80px; /* Adjust the height as needed */
+  }
+
+  .feature{
+    border: 1px solid black;
+    height: 300px;
+    width: 100%;
+    margin-top: 150px;
+  }
+
+  .informasi{
+    float: left;
+  }
+
+  .informasi .deskripsi{
+    background-color: #ccc;
+    width: 450px;
+    height: 200px;
+  }
+  .informasi .logo{
+    width: 250px;
+    height: 200px;
+  }
+  .informasi .dokumentasi{
+    width: 400px;
+    height: 200px;
+    border: 1px solid #ccc;
+  }
+
+  .grafik{
+    /* border: 1px solid #ccc; */
+    /* float: left; */
+    width:100%;
+    /* margin-left: 20px; */
+    /* margin-top: 150px; */
+  }
+
+
+  .grafik .card-scan{
+    width: 550px;
+    height: 200px;
+    border: 1px solid #ccc;
+    background-color: #008ECC;
+    text-align: center;
+    color:white;
+    margin-top: 50px;
+    margin-left:50px;
+    /* float: left; */
+  }
+  .grafik .card-grafik{
+    width: 550px;
+    height: 200px;
+    /* border: 1px solid #ccc; */
+    /* background-color: #008ECC; */
+    text-align: center;
+    color:white;
+    margin-top: 50px;
+    margin-left:250px;
+    /* float: right; */
+  }
+  

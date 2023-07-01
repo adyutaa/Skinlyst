@@ -19,11 +19,11 @@ const reducer = (state, action) => {
 };
 
 function Market2() {
- // const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
   const [{ error, products }, dispatch] = useReducer(logger(reducer), {
     loading: true,
     error: '',
-});
+  });
   useEffect(() => {
     const fetchData = async () => {
       dispatch({ type: 'FETCH_REQUEST' });
@@ -34,8 +34,8 @@ function Market2() {
         dispatch({ type: 'FETCH_FAIL', payload: error.message });
         return;
       }
-      
-    //  setProducts(result.data);
+
+      //  setProducts(result.data);
     };
     fetchData();
   }, [error.message]);
@@ -50,25 +50,25 @@ function Market2() {
       <main>
         <h1>Featured Products</h1>
         <div className="products">
-        {products ? (
-          products.map((product) => (
-            <div className="product" key={product.slug}>
-              <Link to={`/product/${product.slug}`} />
-              <img src={product.image} alt={product.name} />
-              <div className="product-info">
-                <Link to={`/product/${product.slug}`}>
-                  <p>{product.name}</p>
-                </Link>
-                <p>
-                  <strong>${product.price}</strong>
-                </p>
-                <button>Add to cart</button>
+          {products ? (
+            products.map((product) => (
+              <div className="product" key={product.slug}>
+                <Link to={`/product/${product.slug}`} />
+                <img src={product.image} alt={product.name} />
+                <div className="product-info">
+                  <Link to={`/product/${product.slug}`}>
+                    <p>{product.name}</p>
+                  </Link>
+                  <p>
+                    <strong>${product.price}</strong>
+                  </p>
+                  <button>Add to cart</button>
+                </div>
               </div>
-            </div>
-          ))
-        ) : (
-          <div>No products available</div>
-        )}
+            ))
+          ) : (
+            <div>No products available</div>
+          )}
         </div>
       </main>
     </div>

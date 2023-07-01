@@ -1,10 +1,10 @@
 const data = {
   products: [
     {
-      name: 'Nike Slim shirt',
+      name: 'wardah',
       slug: 'nike-slim-shirt',
       category: 'Shirts',
-      image: '/images/p1.jpg', // 679px × 829px
+      image: 'wardah.png', // 679px × 829px
       price: 120,
       countInStock: 10,
       brand: 'Nike',
