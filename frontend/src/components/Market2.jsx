@@ -1,9 +1,9 @@
-import React, { useEffect, useReducer, useState } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import axios from 'axios';
 import './Market2.css';
 import logger from 'use-reducer-logger';
 import { Link } from 'react-router-dom';
-//import data from '.././models/data';
+// import data from '.././models/data';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -20,7 +20,7 @@ const reducer = (state, action) => {
 
 function Market2() {
  // const [products, setProducts] = useState([]);
-  const [{ loading, error, products }, dispatch] = useReducer(logger(reducer), {
+  const [{ error, products }, dispatch] = useReducer(logger(reducer), {
     loading: true,
     error: '',
 });
@@ -30,7 +30,7 @@ function Market2() {
       try {
         const result = await axios.get('/api/products');
         dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
-      } catch {
+      } catch (error) {
         dispatch({ type: 'FETCH_FAIL', payload: error.message });
         return;
       }
@@ -38,7 +38,7 @@ function Market2() {
     //  setProducts(result.data);
     };
     fetchData();
-  }, []);
+  }, [error.message]);
 
   return (
     <div>
@@ -50,7 +50,8 @@ function Market2() {
       <main>
         <h1>Featured Products</h1>
         <div className="products">
-          {products.map((product) => ( // --> iki sek error cah, product.map pie yo
+        {products ? (
+          products.map((product) => (
             <div className="product" key={product.slug}>
               <Link to={`/product/${product.slug}`} />
               <img src={product.image} alt={product.name} />
@@ -64,7 +65,10 @@ function Market2() {
                 <button>Add to cart</button>
               </div>
             </div>
-          ))}
+          ))
+        ) : (
+          <div>No products available</div>
+        )}
         </div>
       </main>
     </div>
