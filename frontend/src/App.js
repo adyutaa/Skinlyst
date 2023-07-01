@@ -15,7 +15,6 @@ import ProdukToner from './components/ProdukToner';
 import Market2 from './components/Market2';
 import ProductScreen from './components/productScreen';
 import Dashboard from './pages/Dashboard';
-
 const App = () => {
   return (
     <Router>
@@ -32,8 +31,8 @@ const App = () => {
         <Route path='/login' element={<Login />} />
         <Route path='/sign-up' element={<SignUp />} />
         <Route path='/produk-toner' element={<ProdukToner />} />
-        <Route path='/market2' element={<Market2 />} />
         <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/market2' element={<Market2 />} />
         <Route path='/product/:slug' element={<ProductScreen />} />
       </Routes>
     </Router>
