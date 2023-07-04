@@ -26,6 +26,7 @@ import Line from './scenes/line/index';
 import FAQ from './scenes/faq/index';
 import Calendar from './scenes/calendar/calendar';
 import Geography from './components/GeographyChart';
+import SignInScreen from './scenes/SignIn/SignIn';
 
 
 const App = () => {
@@ -58,7 +59,8 @@ const App = () => {
               <Route path="/line" element={<Line />} />
               <Route path="/faq" element={<FAQ />} />
               <Route path="/calendar" element={<Calendar />} />
-              <Route path="/geography" element={<Geography />} />
+        <Route path="/geography" element={<Geography />} />
+        <Route path="/signin" element={<SignInScreen />} />
       </Routes>
     </Router>
   )
