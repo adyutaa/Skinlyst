@@ -1,9 +1,5 @@
 import { useState } from "react";
-<<<<<<< HEAD
 import FullCalendar from "@fullcalendar/react";
-=======
-import FullCalendar, { formatDate } from "@fullcalendar/react";
->>>>>>> 76f8497c6e7e0389cd7434f878802759903c087c
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";

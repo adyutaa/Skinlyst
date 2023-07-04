@@ -3,11 +3,7 @@ import './App.css'
 import Start from './components/Start';
 import Upload from './components/Upload';  
 import SkinType from './components/SkinType';  
-<<<<<<< HEAD
 import Market from './pages/Market'; 
-=======
-import Market from './components/Market'; 
->>>>>>> 76f8497c6e7e0389cd7434f878802759903c087c
 import SdrKering from './components/SdrKering'; 
 import SdrBerminyak from './components/SdrBerminyak';
 import KondisiKulit from './components/KondisiKulit';
@@ -17,12 +13,8 @@ import Login from './components/Login';
 import SignUp from './components/SignUp';
 import ProdukToner from './components/ProdukToner';
 import Market2 from './components/Market2';
-<<<<<<< HEAD
 import ProductScreen from './pages/ProductScreen';
 import Cart from './pages/Cart';
-=======
-import ProductScreen from './components/productScreen';
->>>>>>> 76f8497c6e7e0389cd7434f878802759903c087c
 import Dashboard from './scenes/dashboard/index';
 import Team from './scenes/team/index';
 import Contacts from './scenes/contacts/index';
@@ -44,11 +36,7 @@ const App = () => {
         <Route path='/' element={<Start />} />
         <Route path='/upload' element={<Upload />} />
         <Route path='/tipeKulit' element={<SkinType />} />
-<<<<<<< HEAD
-        <Route path='/market1' element={<Market />} />
-=======
         <Route path='/market' element={<Market />} />
->>>>>>> 76f8497c6e7e0389cd7434f878802759903c087c
         <Route path='/ukur-kering' element={<SdrKering />} />
         <Route path='/ukur-minyak' element={<SdrBerminyak />} />
         <Route path='/kondisiKulit' element={<KondisiKulit />} />
@@ -57,13 +45,9 @@ const App = () => {
         <Route path='/login' element={<Login />} />
         <Route path='/sign-up' element={<SignUp />} />
         <Route path='/produk-toner' element={<ProdukToner />} />
-<<<<<<< HEAD
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/market2' element={<Market2 />} />
         <Route path='/Cart' element={<Cart />} />
-=======
-        <Route path='/market2' element={<Market2 />} />
->>>>>>> 76f8497c6e7e0389cd7434f878802759903c087c
         <Route path='/product/:slug' element={<ProductScreen />} />
         <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/team" element={<Team />} />

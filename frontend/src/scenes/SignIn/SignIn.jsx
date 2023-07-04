@@ -1,7 +1,7 @@
 import  "../../index.css";
 import { useLocation } from "react-router-dom";
 import { Container } from "react-bootstrap";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useReducer } from 'react';
 import axios from 'axios';
 import { Navbar, Container, Image, Carousel, Card, Button } from "react-bootstrap";
+import { Link } from 'react-router-dom';
 import cart from "..//components/image/cart.svg";
 import carousel from "../components/image/carousel.png";
 import "./Market.css";
@@ -78,23 +79,30 @@ function Market() {
         ) : (
           <div className="card-grid">
             {products.map((product) => (
-              <Card className='card' key={product.id} style={{ width: '10rem' }}>
-                <Card.Img variant="top" src={product.image} />
-                <Card.Body>
-                  <h6>{product.name}</h6>
-                  <p>{product.price}</p>
-                  <Button size='sm' variant="dark">Add to Cart</Button>
-                </Card.Body>
-              </Card>
+              <div className='product' key={product.slug}>
+                <Link to={`/product/${product.slug}`} />
+                <Card className='card' key={product.id} style={{ width: '10rem' }}>
+                  <Card.Img variant="top" src={product.image} />
+                  <Card.Body>
+
+                    <h6>{product.name}</h6>
+
+                    <p>{product.price}</p>
+                    <Link to={`/product/${product.slug}`}>
+                      <Button size='sm' variant="dark">Add to Cart</Button>
+                    </Link>
+                  </Card.Body>
+                </Card>
+              </div>
             ))}
           </div>
         )}
       </div>
-      
-        <div className='footer1'>
+
+      <div className='footer1'>
         <Footer />
-        </div>
-      
+      </div>
+
     </>
   );
 }
