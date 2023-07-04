@@ -1,0 +1,40 @@
+.carousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh; /* Adjust the height based on your needs */
+    /* width: 50%; */
+  }
+  
+  .cart-container {
+    position: absolute;
+    top: 10px; /* Adjust the top position based on your needs */
+    right: 10px; /* Adjust the right position based on your needs */
+  }
+  .cart{
+    width: 80px;
+    height: 80px;
+  }
+
+  .card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .card:hover{
+    border: 1px solid black;
+    cursor: pointer;
+    transition: 0.5s;
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Adjust the number of columns as needed */
+    gap: 20px; /* Adjust the gap between cards as needed */
+  }
+  
+  .footer1{
+    margin-top: 50px;
+    width: 100%;
+  }
