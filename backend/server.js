@@ -14,5 +14,15 @@ console.log("data =", data.products)
 } catch (error) {
 console.log(error)
 }
-})
+});
+
+app.get("/api/products/slug/:slug", (req, res) => {
+    const product = data.products.find(x => x.slug === req.params.slug);
+    if (product) {
+        res.send(product);
+    }else{
+        res.status(404).send({ message: 'product Tidak ada'});
+    }
+});
+
 app.listen(port, () => console.log(`app listen on port ${port})`))
