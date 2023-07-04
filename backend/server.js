@@ -14,6 +14,7 @@ console.log("data =", data.products)
 } catch (error) {
 console.log(error)
 }
+<<<<<<< HEAD
 });
 
 app.get("/api/products/slug/:slug", (req, res) => {
@@ -25,4 +26,7 @@ app.get("/api/products/slug/:slug", (req, res) => {
     }
 });
 
+=======
+})
+>>>>>>> 76f8497c6e7e0389cd7434f878802759903c087c
 app.listen(port, () => console.log(`app listen on port ${port})`))
