@@ -22,6 +22,7 @@ import ProfileScreen from './ProfileScreen';
 import { getError } from '../utils';
 import SearchBox from '../components/searchBox';
 
+
 const reducer = (state, action) => {
   switch (action.type) {
     case 'FETCH_REQUEST':
@@ -30,6 +31,8 @@ const reducer = (state, action) => {
       return { ...state, loading: false, products: action.payload };
     case 'FETCH_FAIL':
       return { ...state, loading: false, error: action.payload };
+    case 'USER_SIGNOUT':
+      return { ...state, userInfo: null, cart: { cartItems: [] } };
     default:
       return state;
   }
@@ -43,16 +46,17 @@ function Market() {
     ctxDispatch({ type: 'USER_SIGNOUT' });
     localStorage.removeItem('userInfo');
     localStorage.removeItem('shippingAddress');
-    localStorage.removeItem('paymentMethod')
+    localStorage.removeItem('paymentMethod');
     window.location.href = '/signin';
   };
+
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const { data } = await axios.get(`/api/products/categories`);
+        const { data } = await axios.get('/api/products/categories');
         setCategories(data);
       } catch (err) {
         toast.error(getError(err));
@@ -64,18 +68,17 @@ function Market() {
   const [{ error, products, loading }, dispatch] = useReducer(reducer, {
     loading: true,
     error: '',
-    products: []
+    products: [],
   });
 
   useEffect(() => {
     const fetchData = async () => {
       dispatch({ type: 'FETCH_REQUEST' });
       try {
-        const result = await axios.get('/api/products');
-        dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
+        const { data } = await axios.get('/api/products');
+        dispatch({ type: 'FETCH_SUCCESS', payload: data });
       } catch (error) {
         dispatch({ type: 'FETCH_FAIL', payload: error.message });
-        return;
       }
     };
     fetchData();
@@ -83,68 +86,51 @@ function Market() {
 
   return (
     <>
-      <div
-        className={
-          sidebarIsOpen
-            ? 'd-flex flex-column site-container active-cont'
-            : 'd-flex flex-column site-container'
-        }
-      >
-      <Navbar>
-        <ToastContainer position='bottom-center' limit={1} />
+      <div className={sidebarIsOpen ? 'd-flex flex-column site-container active-cont' : 'd-flex flex-column site-container'}>
+        <Navbar>
+          <ToastContainer position="bottom-center" limit={1} />
           <Container>
-          <Button
-                variant="dark"
-                onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
-              >
-                <i className="fas fa-bars"></i>
-              </Button>
-          <Navbar.Brand className="title fw-bold float-start">
-            <h1>Skinlyst</h1>
-          </Navbar.Brand>
-          <Navbar.Toggle />
+            <Button variant="dark" onClick={() => setSidebarIsOpen(!sidebarIsOpen)}>
+              <i className="fas fa-bars"></i>
+            </Button>
+            <Navbar.Brand className="title fw-bold float-start">
+              <h1>Skinlyst</h1>
+            </Navbar.Brand>
+            <Navbar.Toggle />
             <Navbar.Collapse id="basic-navbar-nav">
-            <SearchBox />
-            <Nav className="me-auto  w-100  justify-content-end">
-              <Link to="/cart" className="nav-link">
-                Cart
-                {cart.cartItems.length > 0 && (
-                  <Badge pill bg="danger">
-                    {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
-                  </Badge>
-                )}
-              </Link>
-              {userInfo ? (
-                <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
-                  <LinkContainer to="/profile">
-                    <NavDropdown.Item>User Profile</NavDropdown.Item>
-                  </LinkContainer>
-                  <LinkContainer to="/orderhistory">
-                    <NavDropdown.Item>Order History</NavDropdown.Item>
-                  </LinkContainer>
-                  <NavDropdown.Divider />
-                  <Link
-                    className="dropdown-item"
-                    to="#signout"
-                    onClick={signoutHandler}
-                  >
-                    Sign Out
-                  </Link>
-                </NavDropdown>
-              ) : (
-                <Link className="nav-link" to="/signin">
-                  Sign In
+              <SearchBox />
+              <Nav className="me-auto w-100 justify-content-end">
+                <Link to="/cart" className="nav-link">
+                  Cart
+                  {cart.cartItems.length > 0 && (
+                    <Badge pill bg="danger">
+                      {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
+                    </Badge>
+                  )}
                 </Link>
-              )}
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
+                {userInfo ? (
+                  <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
+                    <LinkContainer to="/profile">
+                      <NavDropdown.Item>User Profile</NavDropdown.Item>
+                    </LinkContainer>
+                    <LinkContainer to="/orderhistory">
+                      <NavDropdown.Item>Order History</NavDropdown.Item>
+                    </LinkContainer>
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item onClick={signoutHandler}>Sign Out</NavDropdown.Item>
+                  </NavDropdown>
+                ) : (
+                  <Link className="nav-link" to="/signin">
+                    Sign In
+                  </Link>
+                )}
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
         </Navbar>
         <div
           className={
-            sidebarIsOpen
-              ? 'active-nav side-navbar d-flex justify-content-between flex-wrap flex-column'
-              : 'side-navbar d-flex justify-content-between flex-wrap flex-column'
+            sidebarIsOpen ? 'active-nav side-navbar d-flex justify-content-between flex-wrap flex-column' : 'side-navbar d-flex justify-content-between flex-wrap flex-column'
           }
         >
           <Nav className="flex-column text-white w-100 p-2">
@@ -153,17 +139,14 @@ function Market() {
             </Nav.Item>
             {categories.map((category) => (
               <Nav.Item key={category}>
-                <LinkContainer
-                  to={`/search/category=${category}`}
-                  onClick={() => setSidebarIsOpen(false)}
-                >
+                <LinkContainer to={`/search/category=${category}`} onClick={() => setSidebarIsOpen(false)}>
                   <Nav.Link>{category}</Nav.Link>
                 </LinkContainer>
               </Nav.Item>
             ))}
           </Nav>
         </div>
-        </div>
+      </div>
       <Container>
         <Navbar.Brand className="fw-bold cart-container">
           <Image src={cart} className="cart" alt="Cart" />
@@ -182,7 +165,7 @@ function Market() {
           </Carousel.Item>
         </Carousel>
       </div>
-      <div className='card-container'>
+      <div className="card-container">
         {loading ? (
           <h1>Loading...</h1>
         ) : error ? (
@@ -190,29 +173,31 @@ function Market() {
         ) : (
           <div className="card-grid">
             {products.map((product) => (
-              <div className='product' key={product.slug}>
-                <Link to={`/product/${product.slug}`} />
-                <Card className='card' key={product.id} style={{ width: '10rem' }}>
-                  <Card.Img variant="top" src={product.image} />
-                  <Card.Body>
-                    <h6>{product.name}</h6>
-                    <p>{product.price}</p>
-                    <Link to={`/product/${product.slug}`}>
-                      <Button size='sm' variant="dark">Add to Cart</Button>
-                    </Link>
-                  </Card.Body>
-                </Card>
+              <div className="product" key={product.slug}>
+                <Link to={`/product/${product.slug}`}>
+                  <Card className="card" style={{ width: '10rem' }}>
+                    <Card.Img variant="top" src={product.image} />
+                    <Card.Body>
+                      <h6>{product.name}</h6>
+                      <p>{product.price}</p>
+                      <Link to={`/product/${product.slug}`}>
+                        <Button size="sm" variant="dark">
+                          Add to Cart
+                        </Button>
+                      </Link>
+                    </Card.Body>
+                  </Card>
+                </Link>
               </div>
             ))}
           </div>
         )}
       </div>
-      <div className='footer1'>
+      <div className="footer1">
         <Footer />
       </div>
     </>
   );
-  
 }
 
 export default Market;
