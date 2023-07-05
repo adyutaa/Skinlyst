@@ -32,7 +32,9 @@ import Geography from './components/GeographyChart';
 import SignInScreen from './scenes/SignIn/SignIn';
 import ShippingAddressScreen from './pages/ShippingAddress';
 import SignupScreen from './pages/SignUpScreen';
-
+import PaymentMethodScreen from './pages/PaymentMethodScreen';
+import PlaceOrderScreen from './pages/PlaceOrderScreen';
+import OrderScreen from './pages/orderScreen';
 
 const App = () => {
   return (
@@ -69,6 +71,9 @@ const App = () => {
         <Route path="/signin" element={<SignInScreen />} />
         <Route path="/shipping" element={<ShippingAddressScreen />} />
         <Route path="/signup" element={<SignupScreen />} />
+        <Route path="/payment" element={<PaymentMethodScreen />} />
+        <Route path="/placeorder" element={<PlaceOrderScreen />} />
+        <Route path="/order/:id" element={<OrderScreen />} />
       </Routes>
     </Router>
   )
