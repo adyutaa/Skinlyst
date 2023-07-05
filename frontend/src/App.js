@@ -4,10 +4,7 @@ import Start from './components/Start';
 import Upload from './components/Upload';  
 import SkinType from './components/SkinType';  
 import Market from './pages/Market'; 
-<<<<<<< HEAD
-=======
 //import Market from './components/Market'; 
->>>>>>> 6d1783120e3da652515dea75ecfbb16bfa3b9565
 import SdrKering from './components/SdrKering'; 
 import SdrBerminyak from './components/SdrBerminyak';
 import KondisiKulit from './components/KondisiKulit';
@@ -19,10 +16,7 @@ import ProdukToner from './components/ProdukToner';
 import Market2 from './components/Market2';
 import ProductScreen from './pages/ProductScreen';
 import Cart from './pages/Cart';
-<<<<<<< HEAD
-=======
 //import ProductScreen from './components/productScreen';
->>>>>>> 6d1783120e3da652515dea75ecfbb16bfa3b9565
 import Dashboard from './scenes/dashboard/index';
 //import Dashboard from './pages/Dashboard';
 import Team from './scenes/team/index';
@@ -38,7 +32,12 @@ import Geography from './components/GeographyChart';
 import SignInScreen from './scenes/SignIn/SignIn';
 import ShippingAddressScreen from './pages/ShippingAddress';
 import SignupScreen from './pages/SignUpScreen';
-
+import PaymentMethodScreen from './pages/PaymentMethodScreen';
+import PlaceOrderScreen from './pages/PlaceOrderScreen';
+import OrderScreen from './pages/orderScreen';
+import OrderHistoryScreen from './pages/orderHistoryScreen';
+import ProfileScreen from './pages/ProfileScreen';
+import SearchScreen from './pages/searchScreen';
 
 const App = () => {
   return (
@@ -47,10 +46,7 @@ const App = () => {
         <Route path='/' element={<Start />} />
         <Route path='/upload' element={<Upload />} />
         <Route path='/tipeKulit' element={<SkinType />} />
-<<<<<<< HEAD
-=======
         <Route path='/market1' element={<Market />} />
->>>>>>> 6d1783120e3da652515dea75ecfbb16bfa3b9565
         <Route path='/market' element={<Market />} />
         <Route path='/ukur-kering' element={<SdrKering />} />
         <Route path='/ukur-minyak' element={<SdrBerminyak />} />
@@ -78,6 +74,12 @@ const App = () => {
         <Route path="/signin" element={<SignInScreen />} />
         <Route path="/shipping" element={<ShippingAddressScreen />} />
         <Route path="/signup" element={<SignupScreen />} />
+        <Route path="/payment" element={<PaymentMethodScreen />} />
+        <Route path="/placeorder" element={<PlaceOrderScreen />} />
+        <Route path="/order/:id" element={<OrderScreen />} />
+        <Route path="/orderhistory" element={<OrderHistoryScreen />} />
+        <Route path="/profile" element={<ProfileScreen />} />
+        <Route path="/search" element={<SearchScreen />} />
       </Routes>
     </Router>
   )

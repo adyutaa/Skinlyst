@@ -4,20 +4,20 @@ import { HelmetProvider } from 'react-helmet-async';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 // import { BrowserRouter } from 'react-router-dom';
-<<<<<<< HEAD
-=======
 import App from './App';
-import { BrowserRouter } from 'react-router-dom';
->>>>>>> 6d1783120e3da652515dea75ecfbb16bfa3b9565
+// import { BrowserRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import { StoreProvider } from './components/Store';
+import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <StoreProvider>
   <React.StrictMode>
     <HelmetProvider>
-      <App />
+        <App />
+        <PayPalScriptProvider deferLoading={true}>
+        </PayPalScriptProvider>
     </HelmetProvider>
   </React.StrictMode>
   </StoreProvider>

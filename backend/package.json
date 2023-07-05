@@ -21,10 +21,6 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
-<<<<<<< HEAD
-    "nodemon": "^1.14.9"
-=======
     "nodemon": "^2.0.22"
->>>>>>> 6d1783120e3da652515dea75ecfbb16bfa3b9565
   }
 }

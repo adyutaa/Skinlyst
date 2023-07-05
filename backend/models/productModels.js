@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 
+
 const productSchema = new mongoose.Schema(
   {
     name: { type: String, required: true, unique: true },
@@ -11,7 +12,7 @@ const productSchema = new mongoose.Schema(
     price: { type: Number, required: true },
     countInStock: { type: Number, required: true },
     rating: { type: Number, required: true },
-    numReviews: { type: Number, required: true },
+    numReviews: { type: Number, required: true }
   },
   {
     timestamps: true,

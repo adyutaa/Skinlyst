@@ -17,7 +17,7 @@ const data = {
   products: [
     {
         name: 'Centella Green Level Unscented Sun SPF50+ PA++++',
-        slug: 'centella-green-level-unscented-sun-spf50-pa++++',
+        slug: 'centella',
         category: 'Sunscreen',
         image: 'wardah.png',
         price: 23.00,

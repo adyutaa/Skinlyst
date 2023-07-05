@@ -1,10 +1,4 @@
 import  "../../index.css";
-<<<<<<< HEAD
-import { useLocation } from "react-router-dom";
-import { Container } from "react-bootstrap";
-import { Helmet } from "react-helmet-async";
-=======
->>>>>>> 6d1783120e3da652515dea75ecfbb16bfa3b9565
 import { Form, Button } from "react-bootstrap";
 import Axios from 'axios';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
