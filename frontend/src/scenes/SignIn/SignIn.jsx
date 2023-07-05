@@ -8,6 +8,7 @@ import { useContext, useEffect, useState } from 'react';
 import { Store } from '../../components/Store';
 import { toast } from 'react-toastify';
 import { getError } from '../../utils';
+import '../../css/SignIn.css'
 
 
 export default function SignInScreen() {
@@ -44,7 +45,7 @@ export default function SignInScreen() {
     return (
         <Container className="small-container">
             <Helmet>
-                <title>Sign In</title>
+                <title className="title">Sign In</title>
             </Helmet>
             <h1 className="my-3">
                 Sign In
@@ -57,7 +58,7 @@ export default function SignInScreen() {
                     onChange={(e) => setEmail(e.target.value)}/>
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="Password">
+                <Form.Group className="mb-3"placeholder="Enter Password" controlId="Password">
                     <Form.Label>Password</Form.Label>
                     <Form.Control
             type="password"
@@ -65,10 +66,10 @@ export default function SignInScreen() {
             onChange={(e) => setPassword(e.target.value)}
           />
                 </Form.Group>
-                <div className="mb-3">
-                    <Button type='submit'>Sign In</Button>
+                <div className="mb-3 btn">
+                    <Button className="bg-dark border-dark" type='submit'>Sign In</Button>
                 </div>
-                <div className="mb-3">
+                <div className="mb-3 btn">
                     New Customer?{' '}
                     <Link to={`/signup?redirect=${redirect}`}>Create Your Account</Link>
                 </div>
