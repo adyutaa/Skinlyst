@@ -1,10 +1,7 @@
 import mongoose from "mongoose";
 import express from "express";
 import cors from "cors";
-<<<<<<< HEAD
 import userRoute from "./routes/userRoute.js";
-=======
->>>>>>> 76f8497c6e7e0389cd7434f878802759903c087c
 
 
 const app = express();

@@ -4,6 +4,10 @@ import './Market2.css';
 import logger from 'use-reducer-logger';
 import { Link } from 'react-router-dom';
 // import data from '.././models/data';
+<<<<<<< HEAD
+=======
+// import data from '../data';
+>>>>>>> 6d1783120e3da652515dea75ecfbb16bfa3b9565
 
 const reducer = (state, action) => {
   switch (action.type) {
