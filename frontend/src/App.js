@@ -3,11 +3,8 @@ import './App.css'
 import Start from './components/Start';
 import Upload from './components/Upload';  
 import SkinType from './components/SkinType';  
-<<<<<<< HEAD
 import Market from './pages/Market'; 
-=======
-import Market from './components/Market'; 
->>>>>>> 76f8497c6e7e0389cd7434f878802759903c087c
+//import Market from './components/Market'; 
 import SdrKering from './components/SdrKering'; 
 import SdrBerminyak from './components/SdrBerminyak';
 import KondisiKulit from './components/KondisiKulit';
@@ -17,13 +14,11 @@ import Login from './components/Login';
 import SignUp from './components/SignUp';
 import ProdukToner from './components/ProdukToner';
 import Market2 from './components/Market2';
-<<<<<<< HEAD
 import ProductScreen from './pages/ProductScreen';
 import Cart from './pages/Cart';
-=======
-import ProductScreen from './components/productScreen';
->>>>>>> 76f8497c6e7e0389cd7434f878802759903c087c
+//import ProductScreen from './components/productScreen';
 import Dashboard from './scenes/dashboard/index';
+//import Dashboard from './pages/Dashboard';
 import Team from './scenes/team/index';
 import Contacts from './scenes/contacts/index';
 import Invoices from './scenes/invoices/index';
@@ -35,6 +30,8 @@ import FAQ from './scenes/faq/index';
 import Calendar from './scenes/calendar/calendar';
 import Geography from './components/GeographyChart';
 import SignInScreen from './scenes/SignIn/SignIn';
+import ShippingAddressScreen from './pages/ShippingAddress';
+import SignupScreen from './pages/SignUpScreen';
 
 
 const App = () => {
@@ -44,11 +41,8 @@ const App = () => {
         <Route path='/' element={<Start />} />
         <Route path='/upload' element={<Upload />} />
         <Route path='/tipeKulit' element={<SkinType />} />
-<<<<<<< HEAD
         <Route path='/market1' element={<Market />} />
-=======
         <Route path='/market' element={<Market />} />
->>>>>>> 76f8497c6e7e0389cd7434f878802759903c087c
         <Route path='/ukur-kering' element={<SdrKering />} />
         <Route path='/ukur-minyak' element={<SdrBerminyak />} />
         <Route path='/kondisiKulit' element={<KondisiKulit />} />
@@ -57,26 +51,24 @@ const App = () => {
         <Route path='/login' element={<Login />} />
         <Route path='/sign-up' element={<SignUp />} />
         <Route path='/produk-toner' element={<ProdukToner />} />
-<<<<<<< HEAD
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/market2' element={<Market2 />} />
         <Route path='/Cart' element={<Cart />} />
-=======
-        <Route path='/market2' element={<Market2 />} />
->>>>>>> 76f8497c6e7e0389cd7434f878802759903c087c
         <Route path='/product/:slug' element={<ProductScreen />} />
         <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/team" element={<Team />} />
-              <Route path="/contacts" element={<Contacts />} />
-              <Route path="/invoices" element={<Invoices />} />
-              <Route path="/form" element={<Form />} />
-              <Route path="/bar" element={<Bar />} />
-              <Route path="/pie" element={<Pie />} />
-              <Route path="/line" element={<Line />} />
-              <Route path="/faq" element={<FAQ />} />
-              <Route path="/calendar" element={<Calendar />} />
+        <Route path="/team" element={<Team />} />
+        <Route path="/contacts" element={<Contacts />} />
+        <Route path="/invoices" element={<Invoices />} />
+        <Route path="/form" element={<Form />} />
+        <Route path="/bar" element={<Bar />} />
+        <Route path="/pie" element={<Pie />} />
+        <Route path="/line" element={<Line />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/calendar" element={<Calendar />} />
         <Route path="/geography" element={<Geography />} />
         <Route path="/signin" element={<SignInScreen />} />
+        <Route path="/shipping" element={<ShippingAddressScreen />} />
+        <Route path="/signup" element={<SignupScreen />} />
       </Routes>
     </Router>
   )

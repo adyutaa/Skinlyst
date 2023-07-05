@@ -1,13 +1,11 @@
-<<<<<<< HEAD
 import React, { useEffect, useReducer } from 'react';
 import axios from 'axios';
-import logger from 'use-reducer-logger';
-import { Navbar, Container, Image, Carousel, Card } from "react-bootstrap";
-import cart from "./image/cart.svg";
-import carousel from "./image/carousel.png";
+import { Navbar, Container, Image, Carousel, Card, Button } from "react-bootstrap";
+import { Link } from 'react-router-dom';
+import cart from "..//components/image/cart.svg";
+import carousel from "../components/image/carousel.png";
 import "./Market.css";
-
-
+import Footer from "../components/Footer.jsx";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -23,11 +21,12 @@ const reducer = (state, action) => {
 };
 
 function Market() {
-  // const [products, setProducts] = useState([]);
-  const [{ error, products }, dispatch] = useReducer(logger(reducer), {
+  const [{ error, products, loading }, dispatch] = useReducer(reducer, {
     loading: true,
     error: '',
+    products: []
   });
+
   useEffect(() => {
     const fetchData = async () => {
       dispatch({ type: 'FETCH_REQUEST' });
@@ -38,12 +37,9 @@ function Market() {
         dispatch({ type: 'FETCH_FAIL', payload: error.message });
         return;
       }
-
-      //  setProducts(result.data);
     };
     fetchData();
-  }, [error.message]);
-
+  }, []);
 
   return (
     <>
@@ -75,56 +71,40 @@ function Market() {
         </Carousel>
       </div>
 
-      <div>
-        {products ? (
-          products.map((product) => (
-            <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" src={product.image} />
-          <Card.Body>
-            <Card.Title>{product.name}</Card.Title>
-            <Card.Text>
-              {product.description}
-            </Card.Text>
-            {/* <Button variant="primary">Go somewhere</Button> */}
-          </Card.Body>
-        </Card>
-          ))
-        ) : (
+      <div className='card-container'>
+        {loading ? (
           <h1>Loading...</h1>
+        ) : error ? (
+          <h1>Error: {error}</h1>
+        ) : (
+          <div className="card-grid">
+            {products.map((product) => (
+              <div className='product' key={product.slug}>
+                <Link to={`/product/${product.slug}`} />
+                <Card className='card' key={product.id} style={{ width: '10rem' }}>
+                  <Card.Img variant="top" src={product.image} />
+                  <Card.Body>
+
+                    <h6>{product.name}</h6>
+
+                    <p>{product.price}</p>
+                    <Link to={`/product/${product.slug}`}>
+                      <Button size='sm' variant="dark">Add to Cart</Button>
+                    </Link>
+                  </Card.Body>
+                </Card>
+              </div>
+            ))}
+          </div>
         )}
       </div>
+
+      <div className='footer1'>
+        <Footer />
+      </div>
+
     </>
   );
-=======
-import React from "react";
-import './style.css';
-import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
-
-const Market = () => {
-    return (
-<Navbar bg="light" expand="lg">
-  <Navbar.Brand href="#">Skinlyst</Navbar.Brand>
-  <Navbar.Toggle aria-controls="navbarSupportedContent" />
-  <Navbar.Collapse id="navbarSupportedContent">
-    <Nav className="mr-auto">
-      <Nav.Link href="#" active>Home</Nav.Link>
-      <Nav.Link href="#">Link</Nav.Link>
-      <NavDropdown title="Dropdown" id="navbarDropdown">
-        <NavDropdown.Item href="#">Action</NavDropdown.Item>
-        <NavDropdown.Item href="#">Another action</NavDropdown.Item>
-        <NavDropdown.Divider />
-        <NavDropdown.Item href="#">Something else here</NavDropdown.Item>
-      </NavDropdown>
-      <Nav.Link href="#" disabled>Disabled</Nav.Link>
-    </Nav>
-    <Form inline className="w-50">
-      <FormControl type="search" placeholder="Search" className="mr-sm-2 w-25 float-start" />
-      <Button variant="outline-success ml-3 float-start" className="">Search</Button>
-    </Form>
-  </Navbar.Collapse>
-</Navbar>
-    );
->>>>>>> 76f8497c6e7e0389cd7434f878802759903c087c
 }
 
 export default Market;

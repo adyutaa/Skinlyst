@@ -1,10 +1,22 @@
 import React, { useEffect, useReducer } from 'react';
 import axios from 'axios';
 import { Navbar, Container, Image, Carousel, Card, Button } from "react-bootstrap";
-import cart from "..//components/image/cart.svg";
+import { Link } from 'react-router-dom';
+import cart from "../components/image/cart.svg";
 import carousel from "../components/image/carousel.png";
 import "./Market.css";
 import Footer from "../components/Footer.jsx";
+import Nav from 'react-bootstrap/Nav';
+import Badge from 'react-bootstrap/Badge';
+import { ToastContainer } from 'react-toastify';
+import { NavDropdown } from 'react-bootstrap';
+import { Store } from '../components/Store';
+import 'react-toastify/dist/ReactToastify.css';
+import ProductScreen from './ProductScreen';
+import SignInScreen from '../scenes/SignIn/SignIn';
+import { LinkContainer } from 'react-router-bootstrap';
+import { useContext } from 'react';
+import ShippingAddressScreen from './ShippingAddress';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -20,6 +32,15 @@ const reducer = (state, action) => {
 };
 
 function Market() {
+  const { state, dispatch: ctxDispatch } = useContext(Store);
+  const { cart, userInfo } = state;
+
+  const signoutHandler = () => {
+    ctxDispatch({ type: 'USER_SIGNOUT' });
+    localStorage.removeItem('userInfo');
+    localStorage.removeItem('shippingAddress');
+  };
+
   const [{ error, products, loading }, dispatch] = useReducer(reducer, {
     loading: true,
     error: '',
@@ -43,11 +64,44 @@ function Market() {
   return (
     <>
       <Navbar>
+        <ToastContainer position='bottom-center' limit={1} />
         <Container>
           <Navbar.Brand className="title fw-bold float-start">
             <h1>Skinlyst</h1>
           </Navbar.Brand>
           <Navbar.Toggle />
+          <Nav className="me-auto">
+                <Link to="/cart" className="nav-link">
+                  Cart
+                  {cart.cartItems?.length > 0 && (
+                    <Badge pill bg="danger">
+                      {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
+                    </Badge>
+                  )}
+            </Link>
+            {userInfo ? (
+                  <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
+                    <LinkContainer to="/profile">
+                      <NavDropdown.Item>User Profile</NavDropdown.Item>
+                    </LinkContainer>
+                    <LinkContainer to="/orderhistory">
+                      <NavDropdown.Item>Order History</NavDropdown.Item>
+                    </LinkContainer>
+                    <NavDropdown.Divider />
+                    <Link
+                      className="dropdown-item"
+                      to="#signout"
+                      onClick={signoutHandler}
+                    >
+                      Sign Out
+                    </Link>
+                  </NavDropdown>
+                ) : (
+                  <Link className="nav-link" to="/signin">
+                    Sign In
+                  </Link>
+                )}
+              </Nav>
         </Container>
         <Container>
           <Navbar.Brand className="fw-bold cart-container">
@@ -78,23 +132,30 @@ function Market() {
         ) : (
           <div className="card-grid">
             {products.map((product) => (
-              <Card className='card' key={product.id} style={{ width: '10rem' }}>
-                <Card.Img variant="top" src={product.image} />
-                <Card.Body>
-                  <h6>{product.name}</h6>
-                  <p>{product.price}</p>
-                  <Button size='sm' variant="dark">Add to Cart</Button>
-                </Card.Body>
-              </Card>
+              <div className='product' key={product.slug}>
+                <Link to={`/product/${product.slug}`} />
+                <Card className='card' key={product.id} style={{ width: '10rem' }}>
+                  <Card.Img variant="top" src={product.image} />
+                  <Card.Body>
+
+                    <h6>{product.name}</h6>
+
+                    <p>{product.price}</p>
+                    <Link to={`/product/${product.slug}`}>
+                      <Button size='sm' variant="dark">Add to Cart</Button>
+                    </Link>
+                  </Card.Body>
+                </Card>
+              </div>
             ))}
           </div>
         )}
       </div>
-      
-        <div className='footer1'>
+
+      <div className='footer1'>
         <Footer />
-        </div>
-      
+      </div>
+
     </>
   );
 }
