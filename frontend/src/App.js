@@ -38,6 +38,10 @@ import OrderScreen from './pages/orderScreen';
 import OrderHistoryScreen from './pages/orderHistoryScreen';
 import ProfileScreen from './pages/ProfileScreen';
 import SearchScreen from './pages/searchScreen';
+import ProtectedRoute from './components/ProtectedRoute';
+import DashboardScreen from './pages/DashboardScreen';
+import AdminRoute from './components/AdminRoute';
+import ProductListScreen from './pages/ProductListScreen';
 
 const App = () => {
   return (
@@ -76,10 +80,57 @@ const App = () => {
         <Route path="/signup" element={<SignupScreen />} />
         <Route path="/payment" element={<PaymentMethodScreen />} />
         <Route path="/placeorder" element={<PlaceOrderScreen />} />
-        <Route path="/order/:id" element={<OrderScreen />} />
-        <Route path="/orderhistory" element={<OrderHistoryScreen />} />
-        <Route path="/profile" element={<ProfileScreen />} />
+        <Route
+                path="/order/:id"
+                element={
+                  <ProtectedRoute>
+                    <OrderScreen />
+                  </ProtectedRoute>
+                }
+              ></Route>
+        <Route path="/orderhistory" element={
+                  <ProtectedRoute>
+                    <OrderHistoryScreen />
+                  </ProtectedRoute>
+                } />
+    
         <Route path="/search" element={<SearchScreen />} />
+        <Route path="/dashboard" element={<DashboardScreen />} />
+        <Route
+                path="/profile"
+                element={
+                  <ProtectedRoute>
+                    <ProfileScreen />
+                  </ProtectedRoute>
+                }
+        />
+        {/* Admin Routes */}
+        <Route
+                path="/admin/dashboard"
+                element={
+                  <AdminRoute>
+                    <DashboardScreen />
+                  </AdminRoute>
+                }
+        ></Route>
+        <Route
+                path="/admin/products"
+                element={
+                  <AdminRoute>
+                    <ProductListScreen />
+                  </AdminRoute>
+                }
+        ></Route>
+        <Route
+                path="/admin/product/:id"
+                element={
+                  <AdminRoute>
+                    <ProductEditScreen />
+                  </AdminRoute>
+                }
+              ></Route>
+
+        
       </Routes>
     </Router>
   )

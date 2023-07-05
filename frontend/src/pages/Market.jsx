@@ -1,12 +1,12 @@
-import React, { useEffect, useReducer, useState} from 'react';
+import React, { useEffect, useReducer, useState, useContext } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { Navbar, Container, Image, Carousel, Card, Button } from "react-bootstrap";
+import { Navbar, Container, Image, Carousel, Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import cart from "../components/image/cart.svg";
-import carousel from "../components/image/carousel.png";
-import "./Market.css";
-import Footer from "../components/Footer.jsx";
+import cart from '../components/image/cart.svg';
+import carousel from '../components/image/carousel.png';
+import './Market.css';
+import Footer from '../components/Footer.jsx';
 import Nav from 'react-bootstrap/Nav';
 import Badge from 'react-bootstrap/Badge';
 import { ToastContainer } from 'react-toastify';
@@ -16,12 +16,11 @@ import 'react-toastify/dist/ReactToastify.css';
 import ProductScreen from './ProductScreen';
 import SignInScreen from '../scenes/SignIn/SignIn';
 import { LinkContainer } from 'react-router-bootstrap';
-import { useContext } from 'react';
 import ShippingAddressScreen from './ShippingAddress';
 import ProfileScreen from './ProfileScreen';
 import { getError } from '../utils';
 import SearchBox from '../components/searchBox';
-
+import ProductListScreen from './ProductListScreen';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -124,15 +123,27 @@ function Market() {
                     Sign In
                   </Link>
                 )}
+                {userInfo && userInfo.isAdmin && (
+                    <NavDropdown title="Admin" id="admin-nav-dropdown">
+                      <LinkContainer to="/admin/dashboard">
+                        <NavDropdown.Item>Dashboard</NavDropdown.Item>
+                      </LinkContainer>
+                      <LinkContainer to="/admin/products">
+                        <NavDropdown.Item>Products</NavDropdown.Item>
+                      </LinkContainer>
+                      <LinkContainer to="/admin/orders">
+                        <NavDropdown.Item>Orders</NavDropdown.Item>
+                      </LinkContainer>
+                      <LinkContainer to="/admin/users">
+                        <NavDropdown.Item>Users</NavDropdown.Item>
+                      </LinkContainer>
+                    </NavDropdown>
+                  )}
               </Nav>
             </Navbar.Collapse>
           </Container>
         </Navbar>
-        <div
-          className={
-            sidebarIsOpen ? 'active-nav side-navbar d-flex justify-content-between flex-wrap flex-column' : 'side-navbar d-flex justify-content-between flex-wrap flex-column'
-          }
-        >
+        <div className={sidebarIsOpen ? 'active-nav side-navbar d-flex justify-content-between flex-wrap flex-column' : 'side-navbar d-flex justify-content-between flex-wrap flex-column'}>
           <Nav className="flex-column text-white w-100 p-2">
             <Nav.Item>
               <strong>Categories</strong>
@@ -196,6 +207,7 @@ function Market() {
       <div className="footer1">
         <Footer />
       </div>
+      <Footer />
     </>
   );
 }
