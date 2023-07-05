@@ -35,6 +35,9 @@ import SignupScreen from './pages/SignUpScreen';
 import PaymentMethodScreen from './pages/PaymentMethodScreen';
 import PlaceOrderScreen from './pages/PlaceOrderScreen';
 import OrderScreen from './pages/orderScreen';
+import OrderHistoryScreen from './pages/orderHistoryScreen';
+import ProfileScreen from './pages/ProfileScreen';
+import SearchScreen from './pages/searchScreen';
 
 const App = () => {
   return (
@@ -74,6 +77,9 @@ const App = () => {
         <Route path="/payment" element={<PaymentMethodScreen />} />
         <Route path="/placeorder" element={<PlaceOrderScreen />} />
         <Route path="/order/:id" element={<OrderScreen />} />
+        <Route path="/orderhistory" element={<OrderHistoryScreen />} />
+        <Route path="/profile" element={<ProfileScreen />} />
+        <Route path="/search" element={<SearchScreen />} />
       </Routes>
     </Router>
   )

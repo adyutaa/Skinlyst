@@ -1,4 +1,3 @@
-import React, { useEffect, useReducer } from 'react';
 import axios from 'axios';
 import { Navbar, Container, Image, Carousel, Card, Button } from "react-bootstrap";
 import { Link } from 'react-router-dom';
@@ -6,6 +5,12 @@ import cart from "..//components/image/cart.svg";
 import carousel from "../components/image/carousel.png";
 import "./Market.css";
 import Footer from "../components/Footer.jsx";
+import { useContext, useEffect, useState, useReducer } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
+import Button from 'react-bootstrap/Button';
+import { getError } from './utils';
+import axios from 'axios';
+import SearchBox from './components/SearchBox';
 
 const reducer = (state, action) => {
   switch (action.type) {

@@ -8,13 +8,16 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import { StoreProvider } from './components/Store';
+import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <StoreProvider>
   <React.StrictMode>
     <HelmetProvider>
-      <App />
+        <App />
+        <PayPalScriptProvider deferLoading={true}>
+        </PayPalScriptProvider>
     </HelmetProvider>
   </React.StrictMode>
   </StoreProvider>

@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import Rating from './Rating';
 import axios from 'axios';
 import { useContext } from 'react';
-import { Store } from '../Store';
+import { Store } from './Store';
+
 
 function Product(props) {
   const { product } = props;
@@ -28,7 +29,7 @@ function Product(props) {
     });
   };
 
-  rreturn (
+  return (
     <Card>
       <Link to={`/product/${product.slug}`}>
         <img src={product.image} className="card-img-top" alt={product.name} />
