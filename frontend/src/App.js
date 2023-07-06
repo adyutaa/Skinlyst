@@ -42,6 +42,10 @@ import ProtectedRoute from './components/ProtectedRoute';
 import DashboardScreen from './pages/DashboardScreen';
 import AdminRoute from './components/AdminRoute';
 import ProductListScreen from './pages/ProductListScreen';
+import ProductEditScreen from './pages/ProductEditScreen';
+import OrderListScreen from './pages/OrderListScreen';
+import UserListScreen from './pages/userListScreen';
+import UserEditScreen from './pages/UserEditScreen';
 
 const App = () => {
   return (
@@ -126,6 +130,30 @@ const App = () => {
                 element={
                   <AdminRoute>
                     <ProductEditScreen />
+                  </AdminRoute>
+                }
+        ></Route>
+        <Route
+                path="/admin/orders"
+                element={
+                  <AdminRoute>
+                    <OrderListScreen />
+                  </AdminRoute>
+                }
+        ></Route>
+        <Route
+                path="/admin/users"
+                element={
+                  <AdminRoute>
+                    <UserListScreen />
+                  </AdminRoute>
+                }
+        ></Route>
+        <Route
+                path="/admin/user/:id"
+                element={
+                  <AdminRoute>
+                    <UserEditScreen />
                   </AdminRoute>
                 }
               ></Route>

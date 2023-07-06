@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useContext } from "react";
 import React, { useEffect, useReducer } from 'react';
 import axios from 'axios';
@@ -22,6 +22,7 @@ const reducer = (state, action) => {
 
 
 function ProductScreen() {
+    const navigate = useNavigate();
     const params = useParams();
     const { slug } = params;
 
@@ -49,6 +50,7 @@ function ProductScreen() {
     const addToCartHandler = async () => {
         const existItem = cart.cartItems.find((x) => x._id === product._id);
         const quantity = existItem ? existItem.quantity + 1 : 1;
+        console.log("ppppp");
         const { data } = await axios.get(`/api/products/${product._id}`);
         if (data.countInStock < quantity) {
           window.alert('Sorry. Product is out of stock');
@@ -58,6 +60,7 @@ function ProductScreen() {
         type: 'CART_ADD_ITEM',
         payload: { ...product, quantity },
       });
+        navigate('/cart')
     };
     return loading? (
         <div>loading...</div>
@@ -67,8 +70,8 @@ function ProductScreen() {
         <Row>
             <Col md={6}>
                 <img
-                className="img-large"
-                 src={product.image}
+                className="img-fluid"
+                 src= {"http://localhost:8080/" + product.image}
                  alt={product.name} 
                 />
             </Col>

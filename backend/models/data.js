@@ -18,10 +18,10 @@ const data = {
   products: [
     {
         name: 'Centella Green Level Unscented Sun SPF50+ PA++++',
-        slug: 'centella-green-level-unscented-sun-spf50-pa++++',
+        slug: 'centella-grell',
         category: 'Sunscreen',
         image: 'images/wardah.png',
-        price: '$23.00',
+        price: 23.00,
         countInStock: 10,
         brand: 'Klairs',
         rating: 4.5,
@@ -30,10 +30,10 @@ const data = {
     },
     {
         name: 'Skintific Beauty',
-        slug: 'centella-green-level-unscented-sun-spf50-pa++++',
+        slug: 'centella-g',
         category: 'Sunscreen',
         image: 'images/wardah.png',
-        price: '$23.00',
+        price: 23.00,
         countInStock: 10,
         brand: 'Klairs',
         rating: 4.5,
@@ -41,11 +41,11 @@ const data = {
         description: 'A water-based, unscented sunscreen'
     },
     {
-        name: 'Centella Green Level Unscented Sun SPF50+ PA++++',
-        slug: 'centella-green-level-unscented-sun-spf50-pa++++',
+        name: 'Centella Green Level',
+        slug: 'centella-green',
         category: 'Sunscreen',
         image: 'images/wardah.png',
-        price: '$23.00',
+        price: 23.00,
         countInStock: 10,
         brand: 'Klairs',
         rating: 4.5,

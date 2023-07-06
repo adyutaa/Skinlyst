@@ -33,7 +33,8 @@ export default function PlaceOrderScreen() {
       });
     
     const { state, dispatch: ctxDispatch } = useContext(Store);
-    const { cart, userInfo } = state;
+  const { cart, userInfo } = state;
+  console.log(userInfo);
 
     const round2 = (num) => Math.round(num * 100 + Number.EPSILON) / 100; // 123.2345 => 123.23
   cart.itemsPrice = round2(
@@ -67,7 +68,7 @@ export default function PlaceOrderScreen() {
       ctxDispatch({ type: 'CART_CLEAR' });
       dispatch({ type: 'CREATE_SUCCESS' });
       localStorage.removeItem('cartItems');
-      navigate(`/order/${data.order._id}`);
+      navigate(`/market`);
     } catch (err) {
       dispatch({ type: 'CREATE_FAIL' });
       toast.error(getError(err));
