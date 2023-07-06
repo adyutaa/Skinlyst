@@ -6,6 +6,8 @@ import data from "./models/data.js"
 import seedRouter from "./routes/seedRoutes.js"
 import productRouter from "./routes/productRoutes.js"
 import userRouter from "./routes/userRoute.js"
+import orderRouter from "./routes/orderRoute.js"
+import uploadRouter from './routes/UploadRoutes.js';
 
 // const mongoose = require('mongoose');
 dotenv.config()
@@ -21,17 +23,18 @@ app.use(express.urlencoded({extended: true}))
 app.use(cors())
 
 ///////
-app.get('/api/products/:id', (req, res) => {
-    const product = data.products.find((x) => x._id === req.params.id);
-    if (product) {
-      res.send(product);
-    } else {
-      res.status(404).send({ message: 'Product Not Found' });
-    }
-});
+// app.get('/api/products/:id', (req, res) => {
+//     const product = data.products.find((x) => x._id === req.params.id);
+//     if (product) {
+//       res.send(product);
+//     } else {
+//       res.status(404).send({ message: 'Product Not Founds' });
+//     }
+// });
   ////////
 
-const port = process.env.PORT | 5001
+const port = 5001
+app.use('/api/uploads', uploadRouter);
 app.use('/api/seed', seedRouter);
 app.use('/api/products', productRouter);
 app.use('/api/users', userRouter);

@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import '../css/Cart.css'
 import { Store } from '../components/Store';
 import { Helmet } from 'react-helmet-async';
 import Row from 'react-bootstrap/Row';
@@ -37,21 +38,21 @@ export default function CartScreen() {
 
 
   return (
-    <div>
+    <div className=''>
       <Helmet>
         <title>Shopping Cart</title>
       </Helmet>
-      <h1>Shopping Cart</h1>
-      <Row>
-        <Col md={8}>
-          {cartItems.length === 0 ? (
-            <MessageBox>
-              Cart is empty. <Link to="/Market2">Go Shopping</Link>
+      <h1 className='judul'>Shopping Cart</h1>
+      <Row className=''>
+        <Col className='pesan' md={8}>
+          { cartItems.length === 0 ? (
+            <MessageBox className="yoi">
+              <h5>Cart is empty.</h5> <Link to="/Market">Go Shopping</Link>
             </MessageBox>
           ) : (
             <ListGroup>
               {cartItems.map((item) => (
-                <ListGroup.Item key={item._id}>
+                <ListGroup.Item className='p' key={item._id}>
                   <Row className="align-items-center">
                     <Col md={4}>
                       <img
@@ -59,33 +60,38 @@ export default function CartScreen() {
                         alt={item.name}
                         className="img-fluid rounded img-thumbnail"
                       ></img>{' '}
-                      <Link to={`/product/${item.slug}`}>{item.name}</Link>
+                      <Link className='nama-item' to={`/product/${item.slug}`}>{item.name}</Link>
                     </Col>
+
                     <Col md={3}>
                     <Button
+                        className='btn-add'
                         onClick={() =>
                           updateCartHandler(item, item.quantity - 1)
                         }
                         variant="light"
                         disabled={item.quantity === 1}
                       >
-                        <i className="fas fa-minus-circle"></i>
+                        <i className="fas fa-minus-circle">+</i>
                       </Button>{' '}
-                      <span>{item.quantity}</span>{' '}
+                      <span className='jumlah'>{item.quantity}</span>{' '}
                       <Button
-                        variant="light"
-                        disabled={item.quantity === item.countInStock}
+                      className='btn-min'
+                      variant="light"
+                      disabled={item.quantity === item.countInStock}
                       >
-                        <i className="fas fa-plus-circle"></i>
+                        <i className="fas fa-plus-circle">-</i>
                       </Button>
                     </Col>
-                    <Col md={3}>${item.price}</Col>
+
+                    <Col  className='price' md={3}> <h5>IDR {item.price}</h5> </Col>
                     <Col md={2}>
                     <Button
+                        className='btn'
                         onClick={() => removeItemHandler(item)}
-                        variant="light"
+                        variant="danger"
                       >
-                        <i className="fas fa-trash"></i>
+                        <i className="fas fa-trash">Hapus</i>
                       </Button>
                     </Col>
                   </Row>
@@ -94,10 +100,10 @@ export default function CartScreen() {
             </ListGroup>
           )}
         </Col>
-        <Col md={4}>
+        <Col md={4} className='box'>
           <Card>
-            <Card.Body>
-              <ListGroup variant="flush">
+            <Card.Body className='card-cart'>
+              <ListGroup variant="flush" className='subtotal'>
                 <ListGroup.Item>
                   <h3>
                     Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{' '}
@@ -105,14 +111,16 @@ export default function CartScreen() {
                     {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}
                   </h3>
                 </ListGroup.Item>
-                <ListGroup.Item>
+
+                <ListGroup.Item className='subtotal'>
                   <div className="d-grid">
                     <Button
                       type="button"
-                                          variant="primary"
+                                          variant="dark"
+                                          // className='btn-kuh'
                                           onClick={checkoutHandler}
                       disabled={cartItems.length === 0}
-                    >
+                      >
                       Proceed to Checkout
                     </Button>
                   </div>

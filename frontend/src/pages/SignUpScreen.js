@@ -1,4 +1,5 @@
 import axios from 'axios';
+import "../css/SignUpScreen.css"
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -49,7 +50,7 @@ export default function SignupScreen() {
   }, [navigate, redirect, userInfo]);
 
   return (
-    <Container className="small-container">
+    <Container className="small-container SignUp-container">
       <Helmet>
         <title>Sign Up</title>
       </Helmet>

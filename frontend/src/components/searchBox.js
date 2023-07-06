@@ -18,16 +18,21 @@ return (
   <Form className="d-flex me-auto" onSubmit={submitHandler}>
     <InputGroup>
       <FormControl
+        style={{width:'250px', height:'30px'}}
         type="text"
         name="q"
         id="q"
         onChange={(e) => setQuery(e.target.value)}
-        placeholder="search products..."
+        placeholder="nigga products..."
         aria-label="Search Products"
         aria-describedby="button-search"
       ></FormControl>
-      <Button variant="outline-primary" type="submit" id="button-search">
-        <i className="fas fa-search"></i>
+      <Button
+      style={{color:'white',padding:'2px', width:'50px'}}
+       variant="dark"
+        type="submit"
+         id="button-search">
+        <i className="fas fa-search">cari</i>
       </Button>
     </InputGroup>
   </Form>

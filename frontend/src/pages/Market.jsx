@@ -5,7 +5,7 @@ import { Navbar, Container, Image, Carousel, Card, Button } from 'react-bootstra
 import { Link } from 'react-router-dom';
 import Cart from "../components/image/Cart.svg";
 import carousel from "../components/image/carousel.png";
-import "./Market.css";
+import "../css/Market.css";
 import Footer from "../components/Footer.jsx";
 import Nav from 'react-bootstrap/Nav';
 import Badge from 'react-bootstrap/Badge';
@@ -52,17 +52,17 @@ function Market() {
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
   const [categories, setCategories] = useState([]);
 
-  useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const { data } = await axios.get('/api/products/categories');
-        setCategories(data);
-      } catch (err) {
-        toast.error(getError(err));
-      }
-    };
-    fetchCategories();
-  }, []);
+  // useEffect(() => {
+  //   const fetchCategories = async () => {
+  //     try {
+  //       const { data } = await axios.get('/api/products/categories');
+  //       setCategories(data);
+  //     } catch (err) {
+  //       toast.error(getError(err));
+  //     }
+  //   };
+  //   fetchCategories();
+  // }, []);
 
   const [{ error, products, loading }, dispatch] = useReducer(reducer, {
     loading: true,
@@ -85,21 +85,23 @@ function Market() {
 
   return (
     <>
-      <div className={sidebarIsOpen ? 'd-flex flex-column site-container active-cont' : 'd-flex flex-column site-container'}>
+      <div className= {sidebarIsOpen ? 'd-flex flex-column site-container active-cont' : 'd-flex flex-column site-container'}>
         <Navbar>
           <ToastContainer position="bottom-center" limit={1} />
           <Container>
-            <Button variant="dark" onClick={() => setSidebarIsOpen(!sidebarIsOpen)}>
-              <i className="fas fa-bars"></i>
+            <Button className='btn-sideBar' variant="dark" onClick={() => setSidebarIsOpen(!sidebarIsOpen)}>
+              <i className="fas fa-bars">Nigga</i>
             </Button>
             <Navbar.Brand className="title fw-bold float-start">
               <h1>Skinlyst</h1>
             </Navbar.Brand>
             <Navbar.Toggle />
             <Navbar.Collapse id="basic-navbar-nav">
+              <div className='search'>
               <SearchBox />
+              </div>
               <Nav className="me-auto w-100 justify-content-end">
-                <Link to="/cart" className="nav-link">
+                <Link to="/cart" className="nav-link" style={{color:'black'}}>
                   Cart
                   {cart.cartItems.length > 0 && (
                     <Badge pill bg="danger">
@@ -109,7 +111,7 @@ function Market() {
                 </Link>
                 {userInfo ? (
                   <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
-                    <LinkContainer to="/profile">
+                    <LinkContainer to="/profile" style={{color:'black'}}>
                       <NavDropdown.Item>User Profile</NavDropdown.Item>
                     </LinkContainer>
                     <LinkContainer to="/orderhistory">
@@ -124,21 +126,21 @@ function Market() {
                   </Link>
                 )}
                 {userInfo && userInfo.isAdmin && (
-                    <NavDropdown title="Admin" id="admin-nav-dropdown">
-                      <LinkContainer to="/admin/dashboard">
-                        <NavDropdown.Item>Dashboard</NavDropdown.Item>
-                      </LinkContainer>
-                      <LinkContainer to="/admin/products">
-                        <NavDropdown.Item>Products</NavDropdown.Item>
-                      </LinkContainer>
-                      <LinkContainer to="/admin/orders">
-                        <NavDropdown.Item>Orders</NavDropdown.Item>
-                      </LinkContainer>
-                      <LinkContainer to="/admin/users">
-                        <NavDropdown.Item>Users</NavDropdown.Item>
-                      </LinkContainer>
-                    </NavDropdown>
-                  )}
+                  <NavDropdown title="Admin" id="admin-nav-dropdown" style={{color:'black'}}>
+                    <LinkContainer to="/admin/dashboard">
+                      <NavDropdown.Item>Dashboard</NavDropdown.Item>
+                    </LinkContainer>
+                    <LinkContainer to="/admin/products">
+                      <NavDropdown.Item>Products</NavDropdown.Item>
+                    </LinkContainer>
+                    <LinkContainer to="/admin/orders">
+                      <NavDropdown.Item>Orders</NavDropdown.Item>
+                    </LinkContainer>
+                    <LinkContainer to="/admin/users">
+                      <NavDropdown.Item>Users</NavDropdown.Item>
+                    </LinkContainer>
+                  </NavDropdown>
+                )}
               </Nav>
             </Navbar.Collapse>
           </Container>
@@ -158,13 +160,13 @@ function Market() {
           </Nav>
         </div>
       </div>
-      <Container>
+      {/* <Container>
         <Navbar.Brand className="fw-bold cart-container">
           <Image src={Cart} className="cart" alt="Cart" />
         </Navbar.Brand>
-      </Container>
+      </Container> */}
       <div className="carousel-container">
-        <Carousel>
+        <Carousel className='my-carousel'>
           <Carousel.Item>
             <Image src={carousel} alt="Slide 1" className="carousel" />
           </Carousel.Item>
@@ -177,6 +179,7 @@ function Market() {
         </Carousel>
       </div>
       <div className="card-container">
+      <h3 className='sub-title'>Featured Products</h3>
         {loading ? (
           <h1>Loading...</h1>
         ) : error ? (
@@ -185,13 +188,13 @@ function Market() {
           <div className="card-grid">
             {products.map((product) => (
               <div className="product" key={product.slug}>
-                <Link to={`/product/${product.slug}`}>
-                  <Card className="card" style={{ width: '10rem' }}>
+                <Link to={`/product/${product.slug}`} className='link'>
+                  <Card className="card-market" style={{ width: '10rem' }}>
                     <Card.Img variant="top" src={product.image} />
                     <Card.Body>
                       <h6>{product.name}</h6>
                       <p>{product.price}</p>
-                      <Link to={`/product/${product.slug}`}>
+                      <Link to={`/product/${product.slug}`} className='link'>
                         <Button size="sm" variant="dark">
                           Add to Cart
                         </Button>
@@ -204,12 +207,11 @@ function Market() {
           </div>
         )}
       </div>
-      <div className="footer1">
+      {/* <div className="footer1">
         <Footer />
-      </div>
+      </div> */}
       <Footer />
     </>
   );
 }
-
 export default Market;

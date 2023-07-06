@@ -5,6 +5,8 @@ import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
 import { Store } from '../components/Store';
 import CheckoutSteps from '../components/CheckoutSteps';
+import '../css/ShippingAddress.css'
+import Footer from '../components/Footer';
 
 export default function ShippingAddressScreen() {
   const navigate = useNavigate();
@@ -56,7 +58,7 @@ export default function ShippingAddressScreen() {
       </Helmet>
 
       <CheckoutSteps step1 step2></CheckoutSteps>
-      <div className="container small-container">
+      <div className="container small-container shipping-container">
         <h1 className="my-3">Shipping Address</h1>
         <Form onSubmit={submitHandler}>
           <Form.Group className="mb-3" controlId="fullName">
@@ -67,6 +69,7 @@ export default function ShippingAddressScreen() {
               required
             />
           </Form.Group>
+          <div className='address-city'>
           <Form.Group className="mb-3" controlId="address">
             <Form.Label>Address</Form.Label>
             <Form.Control
@@ -83,14 +86,9 @@ export default function ShippingAddressScreen() {
               required
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="postalCode">
-            <Form.Label>Postal Code</Form.Label>
-            <Form.Control
-              value={postalCode}
-              onChange={(e) => setPostalCode(e.target.value)}
-              required
-            />
-          </Form.Group>
+          </div>
+
+          <div className='postalCode-country'>
           <Form.Group className="mb-3" controlId="country">
             <Form.Label>Country</Form.Label>
             <Form.Control
@@ -99,13 +97,23 @@ export default function ShippingAddressScreen() {
               required
             />
           </Form.Group>
+          <Form.Group className="mb-3" controlId="postalCode">
+            <Form.Label>Postal Code</Form.Label>
+            <Form.Control
+              value={postalCode}
+              onChange={(e) => setPostalCode(e.target.value)}
+              required
+            />
+          </Form.Group>
+          </div>
           <div className="mb-3">
-            <Button variant="primary" type="submit">
+            <Button variant="dark" type="submit">
               Continue
             </Button>
           </div>
         </Form>
       </div>
+      <Footer />
     </div>
   );
 }

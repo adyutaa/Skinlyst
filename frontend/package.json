@@ -1,6 +1,6 @@
 {
   "name": "skinlyst-app",
-  "proxy": "http://127.0.0.1:5001",
+  "proxy": "http://localhost:5001",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -26,9 +26,11 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.4.0",
     "bootstrap": "^5.3.0",
+    "cloudinary": "^1.37.3",
     "dotenv": "^16.3.1",
     "formik": "^2.4.2",
     "http-proxy-middleware": "^2.0.6",
+    "multer": "^1.4.5-lts.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.8.0",
     "react-dom": "^18.2.0",
@@ -42,6 +44,7 @@
     "react-scripts": "^5.0.1",
     "react-sidebar-pro": "^3.1.1",
     "react-toastify": "^8.0.3",
+    "streamifier": "^0.1.1",
     "use-reducer-logger": "^1.0.2",
     "web-vitals": "^2.1.4",
     "yup": "^1.2.0"

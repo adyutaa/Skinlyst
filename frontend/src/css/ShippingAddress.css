@@ -1,0 +1,28 @@
+.shipping-container{
+    border:5px solid black;
+    position:absolute;
+    top:25%;
+    left:28%;
+    border-radius:12px;
+}
+#address{
+    width:350px;
+}
+#city{
+    width:200px;
+}
+#postalCode{
+    width:145px;
+}
+#country{
+    width:400px;
+}
+
+.address-city{
+    display:flex;
+    gap:10px;
+}
+.postalCode-country{
+    display:flex;
+    gap:15px;
+}
