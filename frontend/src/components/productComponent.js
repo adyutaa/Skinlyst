@@ -19,7 +19,7 @@ const reducer = (state, action) => {
   
 function ProductScreen(props) {
     const { product } = props;
-    const [{ loading, error, product }, dispatch] = useReducer(reducer, {
+    const [{ loading, error }, dispatch] = useReducer(reducer, {
         loading: true,
         error: '',
     });

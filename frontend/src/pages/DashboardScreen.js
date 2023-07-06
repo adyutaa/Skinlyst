@@ -8,6 +8,7 @@ import MessageBox from '../components/MessageBox';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
+import { Bar } from '@nivo/bar';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -55,8 +56,8 @@ export default function DashboardScreen() {
       <div>
         <h1>Dashboard</h1>
         {loading ? (
-          <LoadingBox />
-        ) : error ? (
+                <LoadingBox />
+            ) : error ? (
           <MessageBox variant="danger">{error}</MessageBox>
         ) : (
           <>
@@ -69,14 +70,15 @@ export default function DashboardScreen() {
                         ? summary.users[0].numUsers
                         : 0}
                     </Card.Title>
-                    <Card.Text> Users</Card.Text>
+                    <Card.Text>Users</Card.Text>
                   </Card.Body>
                 </Card>
               </Col>
               <Col md={4}>
                 <Card>
                   <Card.Body>
-                    <Card.Title>
+                                            <Card.Title>
+                                                
                       {summary.orders && summary.users[0]
                         ? summary.orders[0].numOrders
                         : 0}
@@ -89,12 +91,12 @@ export default function DashboardScreen() {
                 <Card>
                   <Card.Body>
                     <Card.Title>
-                      $
+                      Rp
                       {summary.orders && summary.users[0]
                         ? summary.orders[0].totalSales.toFixed(2)
                         : 0}
                     </Card.Title>
-                    <Card.Text> Orders</Card.Text>
+                    <Card.Text> Total Revenue</Card.Text>
                   </Card.Body>
                 </Card>
               </Col>
@@ -132,7 +134,26 @@ export default function DashboardScreen() {
                   ]}
                 ></Chart>
               )}
-            </div>
+                            </div>
+                            <div>
+                                <h2>Top 5 Sales by Categories</h2>
+                                {summary.productCategories.length === 0 ? (
+                                    <MessageBox>No Category</MessageBox>
+                                ) : (
+                                        <Chart
+                                            width="70%"
+                                            height="400px"
+                                            chartType="Bar"
+                                            loader={<div>Loading Chart...</div>}
+                                            data={[
+                                                ['Category', 'Products'],
+                                                ...summary.categorySales.map((x) => [x.category, x.sales]),
+                                            ]}
+                                        ></Chart>
+                                    )}
+                                        
+                            </div>
+
           </>
         )}
       </div>
