@@ -99,7 +99,7 @@ orderRouter.get(
         const allOrder = await Order.find({
             createdAt: {
                 $gte: '2023-07-04',
-                $lte: '2023-07-07'
+                $lte: '2023-07-08'
             }
         });
         const categorySales = productCategories.map((i) => { 
@@ -118,7 +118,8 @@ orderRouter.get(
                 categorySales[idx].sales += 1;
             })
         });
-        
+        categorySales.sort((a, b) => b.sales - a.sales);
+        categorySales.splice(5);
         console.log(categorySales);
       res.send({ users, orders, dailyOrders, productCategories , categorySales});
     })
