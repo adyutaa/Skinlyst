@@ -8,6 +8,7 @@ import { getError } from '../utils';
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { Navbar } from 'react-bootstrap';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -92,10 +93,13 @@ export default function UserListScreen() {
   return (
     <div>
       <Helmet>
-              <title>Users</title>
+              <title>Userst</title>
               {loadingDelete && <LoadingBox></LoadingBox>}
-      </Helmet>
-      <h1>Users</h1>
+          </Helmet>
+          <Navbar>
+          <h1 className='m-4 justify-content-center '>Skinlyst Users List</h1>
+          </Navbar>
+      
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (

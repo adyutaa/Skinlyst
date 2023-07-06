@@ -192,7 +192,10 @@ function Market() {
                   <Card className="card" style={{ width: '10rem' }}>
                     <Card.Img variant="top" src={product.image} />
                     <Card.Body>
-                      <h6>{product.name}</h6>
+                      <h6>
+                        {product.name.length > 35 ?
+                        `${product.name.substring(0, 35)}...` :product.name}
+                      </h6>
                       <p>{product.price}</p>
                       <Link to={`/product/${product.slug}`}>
                         <Button size="sm" variant="dark">

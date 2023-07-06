@@ -97,11 +97,11 @@ export default function CartScreen() {
         <Col md={4}>
           <Card>
             <Card.Body>
-              <ListGroup variant="flush">
+              <ListGroup variant="flush p-5">
                 <ListGroup.Item>
                   <h3>
-                    Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{' '}
-                    items) : $
+                    Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{'  '}
+                    items) :  Rp {'  '}
                     {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}
                   </h3>
                 </ListGroup.Item>
@@ -109,8 +109,8 @@ export default function CartScreen() {
                   <div className="d-grid">
                     <Button
                       type="button"
-                                          variant="primary"
-                                          onClick={checkoutHandler}
+                      variant="primary"
+                      onClick={checkoutHandler}
                       disabled={cartItems.length === 0}
                     >
                       Proceed to Checkout

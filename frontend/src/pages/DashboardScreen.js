@@ -54,7 +54,7 @@ export default function DashboardScreen() {
   
     return (
       <div>
-        <h1>Dashboard</h1>
+        <h1 className='m-5'>Skinlyst Dashboard</h1>
         {loading ? (
                 <LoadingBox />
             ) : error ? (
@@ -64,13 +64,14 @@ export default function DashboardScreen() {
             <Row>
               <Col md={4}>
                 <Card>
-                  <Card.Body>
-                    <Card.Title>
+                  <Card.Body >
+                                            <Card.Title >
                       {summary.users && summary.users[0]
                         ? summary.users[0].numUsers
                         : 0}
                     </Card.Title>
-                    <Card.Text>Users</Card.Text>
+                                            <Card.Text className='m-5 fs-3'>
+                                                <h2>Total Users</h2></Card.Text>
                   </Card.Body>
                 </Card>
               </Col>
@@ -83,7 +84,8 @@ export default function DashboardScreen() {
                         ? summary.orders[0].numOrders
                         : 0}
                     </Card.Title>
-                    <Card.Text> Orders</Card.Text>
+                                            <Card.Text>
+                        <h2>Total Transaksi</h2></Card.Text>
                   </Card.Body>
                 </Card>
               </Col>
@@ -96,13 +98,13 @@ export default function DashboardScreen() {
                         ? summary.orders[0].totalSales.toFixed(2)
                         : 0}
                     </Card.Title>
-                    <Card.Text> Total Revenue</Card.Text>
+                    <Card.Text> <h2>Total Pendapatan</h2></Card.Text>
                   </Card.Body>
                 </Card>
               </Col>
             </Row>
             <div className="my-3">
-              <h2>Sales</h2>
+              <h2 className='m-5'>Grafik All-Time Total Penjualan Produk </h2>
               {summary.dailyOrders.length === 0 ? (
                 <MessageBox>No Sale</MessageBox>
               ) : (

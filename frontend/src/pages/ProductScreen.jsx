@@ -50,7 +50,6 @@ function ProductScreen() {
     const addToCartHandler = async () => {
         const existItem = cart.cartItems.find((x) => x._id === product._id);
         const quantity = existItem ? existItem.quantity + 1 : 1;
-        console.log("ppppp");
         const { data } = await axios.get(`/api/products/${product._id}`);
         if (data.countInStock < quantity) {
           window.alert('Sorry. Product is out of stock');
@@ -88,7 +87,7 @@ function ProductScreen() {
                             numReviews={product.numReviews}
                         {/* </Rating> */}
                     </ListGroup.Item>
-                    <ListGroup.Item>Price : ${product.price}</ListGroup.Item>
+                    <ListGroup.Item>Price : {product.price}</ListGroup.Item>
                     <ListGroup.Item>Description :
                          <p>{product.description}</p></ListGroup.Item>
                 </ListGroup>
