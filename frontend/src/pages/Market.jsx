@@ -21,6 +21,9 @@ import ProfileScreen from './ProfileScreen';
 import { getError } from '../utils';
 import SearchBox from '../components/searchBox';
 import ProductListScreen from './ProductListScreen';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
 
 const reducer = (state, action) => {
   switch (action.type) {

@@ -53,3 +53,11 @@ btn-primary,
 .active-nav {
   left: 0;
 }
+
+.btn-primary {
+  background-color: #f0c040;
+  color: #000000;
+}
+.rating span {
+  color: #ffc000;
+}

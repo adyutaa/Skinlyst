@@ -1,6 +1,8 @@
 import express from 'express';
 import expressAsyncHandler from 'express-async-handler';
 import Order from '../models/orderModel.js';
+import Users from '../models/userModel.js';
+import Product from '../models/productModels.js';
 import { isAuth, isAdmin} from '../utils.js';
 
 const orderRouter = express.Router();
@@ -34,7 +36,8 @@ orderRouter.post(
   '/',
   isAuth,
     expressAsyncHandler(async (req, res) => {
-      console.log("order " + req.user);
+        // console.log("order " + req.user);
+        // console.log(req.body.orderItems);
     const newOrder = new Order({
       orderItems: req.body.orderItems.map((x) => ({ ...x, product: x._id })),
       shippingAddress: req.body.shippingAddress,
@@ -66,7 +69,7 @@ orderRouter.get(
           },
         },
       ]);
-      const users = await User.aggregate([
+      const users = await Users.aggregate([
         {
           $group: {
             _id: null,
@@ -92,7 +95,32 @@ orderRouter.get(
           },
         },
       ]);
-      res.send({ users, orders, dailyOrders, productCategories });
+        console.log(productCategories);
+        const allOrder = await Order.find({
+            createdAt: {
+                $gte: '2023-07-04',
+                $lte: '2023-07-07'
+            }
+        });
+        const categorySales = productCategories.map((i) => { 
+            return {
+                category: i._id,
+                sales: 0,
+            }
+        })
+        
+        allOrder.forEach((order) => { 
+            order.orderItems.forEach((item) => { 
+                const category = item.category;
+                const idx = categorySales.findIndex((i) => {
+                    return i.category === category;
+                })
+                categorySales[idx].sales += 1;
+            })
+        });
+        
+        console.log(categorySales);
+      res.send({ users, orders, dailyOrders, productCategories , categorySales});
     })
 );
   
