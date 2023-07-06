@@ -1,0 +1,46 @@
+.title-dashboard{
+    padding:20px;
+}
+.total-user,.total-order,.total-revenue{
+    border:0.5px solid black;
+    background-color:#E7E7E7;
+    box-shadow: -1px 2px 7px black;
+    width:250px;
+    margin-left:65%;
+    padding:0px;
+}
+.total-user:hover,.total-order:hover,.total-revenue:hover{
+    border:1px solid black;
+}
+
+.sales-grafik h2{
+    /* text-aligb:center; */
+    margin-top:30px;
+    /* border:3px solid black */
+}
+.sales-grafik{
+    margin-top:100px;
+    border:4px solid #CCCCCC;
+    border-radius:12px;
+    width:90%;
+    margin-left:5%;
+}
+
+.flex-2-chart{
+    margin-top:100px;
+    margin-left:6.5%;
+    display:flex;
+    gap:50px;
+    /* width:100%; */
+}
+.border-chart-bar,.border-chart-pie{
+    border:4px solid #CCCCCC;
+    padding:10px;
+    border-radius:12px;
+    /* padding:2px; */
+    /* background-color:red; */
+}
+.border-chart-bar h2{
+    margin-top:10px;
+    margin-bottom:10px;
+}

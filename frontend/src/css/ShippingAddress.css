@@ -18,6 +18,10 @@
     width:400px;
 }
 
+#country, #address, #city, #postalCode, #fullName{
+    border:1px solid black;
+}
+
 .address-city{
     display:flex;
     gap:10px;

@@ -9,7 +9,6 @@ import userRouter from "./routes/userRoute.js"
 import orderRouter from "./routes/orderRoute.js"
 import uploadRouter from './routes/UploadRoutes.js';
 
-// const mongoose = require('mongoose');
 dotenv.config()
 mongoose.connect(process.env.MONGODB_URI).then(() => {
     console.log("connected to MongoDB")
@@ -19,7 +18,11 @@ mongoose.connect(process.env.MONGODB_URI).then(() => {
 
 const app = express()
 app.use(express.json())
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({ extended: true }))
+app.get('/api/keys/paypal', (req, res) => {
+  res.send(process.env.PAYPAL_CLIENT_ID || 'sb');
+});
+
 app.use(cors())
 
 ///////
@@ -38,6 +41,7 @@ app.use('/api/uploads', uploadRouter);
 app.use('/api/seed', seedRouter);
 app.use('/api/products', productRouter);
 app.use('/api/users', userRouter);
+app.use('/api/orders', orderRouter);
 
 app.use((err, req, res, next) => {
     res.status(500).send({ message: err.message })

@@ -1,0 +1,23 @@
+.pages{
+    width:10px;
+    display:flex;
+    position:absolute;
+    left:43%;
+    /* align-items:center; */
+}
+.list-product{
+    margin-top:20px;
+}
+.btn-create{
+    position:absolute;
+    right:5%;
+    top:3%;
+}
+.title-product-list{
+    margin-top:20px;
+    margin-bottom:20px;
+    margin-left:20px;
+}
+.btn-edit{
+    display:flex;
+}

@@ -52,6 +52,7 @@ export default function ShippingAddressScreen() {
     navigate('/payment');
   };
   return (
+    <>
     <div>
       <Helmet>
         <title>Shipping Address</title>
@@ -113,7 +114,7 @@ export default function ShippingAddressScreen() {
           </div>
         </Form>
       </div>
-      <Footer />
     </div>
+    </>
   );
 }
